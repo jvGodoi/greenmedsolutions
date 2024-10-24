@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Controle de Estoque</title>
+  <link rel="stylesheet" href="./css/estoque.css">
+  <!-- <link rel="stylesheet" href="./css/movimentacoes.css"> -->
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="shortcut icon" href="./icones/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+  <nav class="navegacao">
+    <img src="./img/seta-voltar.svg" alt="" srcset="" class="navegacao-seta--voltar" />
+    <div class="navegacao-logo">
+      <a href="./index.html" class="navegacao-logo--voltar-login">
+        <img src="./img/logo.png" alt="" class="navegacao-logo-img" />
+      </a>
+      <h3 class="navegacao-logo-titulo-">GreenMed<br />Solutions</h3>
+    </div>
+    <div class="navegacao-container">
+      <ul class="navegacao-container--menu">
+        <li>
+          <a href="./estoque.html">
+            <img src="./icones/estoque.svg" alt="" srcset="" />
+            Controle Estoque
+          </a>
+        </li>
+        <li>
+          <a href="./movimentacoes.html">
+            <img src="./icones/movimentacoes.svg" alt="" />
+            Movimentações
+          </a>
+        </li>
+      </ul>
+      <ul class="navegacao-container--menu">
+        <li>
+          <a href="#">
+            <img src="./icones/configuracoes.svg" alt="" />
+            Configurações
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container-conteudo-principal">
+    <div class="container-conteudo-principal-cabecalho">
+      <h1>Movimentações</h1>
+      <div class="container-conteudo-principal-cabecalho--perfil">
+        <h3>Usuário</h3>
+        <a href="#">
+          <img src="./icones/notificacoes.svg" alt="" srcset="" class="container-conteudo-principal-cabecalho--perfil-notificacoes" />
+        </a>
+        <a href="">
+          <img src="./img/perfil.png" alt="" srcset="" class="container-conteudo-principal-cabecalho--perfil-usuario" />
+        </a>
+      </div>
+    </div>
+    <div class="container-conteudo-principal--produtos">
+      <div class="container-conteudo-principal--produtos-cabecalho">
+        <h2>Produtos</h2>
+        <div class="container-conteudo-principal--produtos-cabecalho-filtro">
+          <img src="./icones/filtrar-alternativa.svg" alt="" class="container-conteudo-principal--produtos-cabecalho-filtro--btn-filtrar" />
+          <div class="container-conteudo-principal--produtos-cabecalho-filtro-pesquisa">
+            <input type="search" class="container-conteudo-principal--produtos-cabecalho-filtro-pesquisa-btn-pesquisa" placeholder="Search" />
+            <img src="./img/search.svg" class="container-conteudo-principal--produtos-cabecalho-filtro-pesquisa-btn-pesquisa--search" alt="" srcset="" />
+          </div>
+          <a href="#" id="" class="container-conteudo-principal--produtos-cabecalho-filtro--btn-novo-produto">Novo Produto</a>
+          <a href="#" id="" class="container-conteudo-principal--produtos-cabecalho-filtro--btn-novo-produto_respon">
+            <img src="./icones/adicionar.svg" alt="" srcset="">
+          </a>
+        </div>
+      </div>
+      <div class="container-conteudo-principal--produtos--status">
+        <ul>
+          <li>
+            <a href="#" class="container-conteudo-principal--produtos--status--stat1">Todos</a>
+          </li>
+          <li>
+            <a href="#" class="container-conteudo-principal--produtos--status--stat2">Disponiveis</a>
+          </li>
+          <li>
+            <a href="#" class="container-conteudo-principal--produtos--status--stat2">Indisponiveis</a>
+          </li>
+        </ul>
+      </div>
+      <div class="container-conteudo-principal--produtos--status-lista">
+        <form class="container-conteudo-principal--produtos--status-lista--form">
+          <!-- <label for="status" >Escolha um status:</label> -->
+          <select id="status" class="container-conteudo-principal--produtos--status-lista--form--selecao" name="status">
+            <option value="maçã">Todos</option>
+            <option value="banana">Disponíveis</option>
+            <option value="laranja">Indisponíveis</option>
+          </select>
+        </form>
+      </div>
+      <div class="container-conteudo-principal--produtos-tabela">
+        <table class="container-conteudo-principal--produtos--tabela--estoque">
+          <thead>
+            <tr>
+              <th>
+              </th>
+              <th class="tabela-titulo">
+                ID
+                <img src="./img/botao-filtro2.svg" alt="" srcset="">
+              </th>
+              <th class="tabela-titulo">
+                Nome
+                <img src="./img/botao-filtro2.svg" alt="" srcset="">
+              </th>
+              <th class="tabela-titulo">
+                Status
+                <img src="./img/botao-filtro2.svg" alt="" srcset="">
+              </th>
+              <th class="expandir"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><input type="checkbox" class="tabela-checkbox"></td>
+              <td>1</td>
+              <td>Echinacea</td>
+              <td class="tabela-entrada">
+                <span>Entrada</span>
+              </td>
+              <td class="expandir">
+                <span>...</span>
+              </td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" class="tabela-checkbox"></td>
+              <td>2</td>
+              <td>Camomila</td>
+              <td class="tabela-saida">
+                <span>Saída</span>
+              </td>
+              <td class="expandir">
+                <span>...</span>
+              </td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" class="tabela-checkbox"></td>
+              <td>3</td>
+              <td>Erva Doce</td>
+              <td class="tabela-transf">
+                <span>Trânsferencia</span>
+              </td>
+              <td class="expandir">
+                <span>...</span>
+              </td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" class="tabela-checkbox"></td>
+              <td>4</td>
+              <td>Hortelã</td>
+              <td class="tabela-ajuste">
+                <span>Ajuste</span>
+              </td>
+              <td class="expandir">
+                <span>...</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/script.js"></script>
+</body>
+
+</html>
