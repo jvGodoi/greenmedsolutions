@@ -73,12 +73,17 @@ main {
   border-radius: 10px;
   font-weight: bold;
   transition: 0.2s;
+  border: none;
 }
 
 .form-btn:hover {
   background-color: var(--verde-hover);
 }
 
+.input-usuario{
+  padding: 20px;
+  margin: 0;
+}
 .login-usuario,
 .login-senha {
   display: flex;

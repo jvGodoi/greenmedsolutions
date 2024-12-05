@@ -35,12 +35,15 @@ main {
 h1 {
   font-size: 2.8rem;
 }
+
 h2 {
   font-size: 2.4rem;
 }
+
 h3 {
   font-size: 2rem;
 }
+
 p,
 a,
 th,
@@ -84,6 +87,7 @@ input {
     justify-content: center;
     grid-template-columns: 1fr;
   }
+
   p,
   a,
   th,
@@ -93,9 +97,11 @@ input {
     font-size: 1.4rem;
   }
 }
+
 .voltar-login {
   color: var(--preto-sombra);
 }
+
 .btn-filtrar {
   cursor: pointer;
 }
@@ -106,21 +112,78 @@ input {
   border-radius: 30px;
   padding: 5px 20px;
 }
+
 .tabela-saida span {
   background-color: #fc9a9a99;
   color: #bd0d0d;
   border-radius: 30px;
   padding: 5px 20px;
 }
+
 .tabela-transf span {
   background-color: #ace4a799;
   color: #17700f;
   border-radius: 30px;
   padding: 5px 20px;
 }
+
 .tabela-ajuste span {
   background-color: #fae18999;
   color: #aa5200;
   border-radius: 30px;
   padding: 5px 20px;
 }
+
+/* estilo.css */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+button {
+  margin: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+button.editar-produto{
+  background-color: transparent;
+  background-image: url("../img/edit.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  outline: none;
+  border: none;
+  height: 25px;
+  margin: 0;
+    width: 30px; 
+  font-size: 0px;
+  margin-left: 10px;
+}
+
+button.deletar-produto{
+/*   background-color: var(--cinza);
+  color: var(--cinza-escuro);
+  border: 1px solid #8a8a8a; */
+  background-image: url("../img/delete_.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 30px;
+  background-size: contain;
+  background-color: transparent;
+  border: none;
+  font-size: 0;
+  margin: 0 10px;
+}
+
+/* input[type="text"] {
+  padding: 5px;
+  margin: 5px;
+} */
