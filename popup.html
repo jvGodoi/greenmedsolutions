@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adicionar Novo Produto</title>
+    <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
+    <link rel="stylesheet" href="./css/popup.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+    <div class="popup-content">
+        <h2>Adicionar Novo Produto</h2>
+        <form id="formProduto" class="form-produto">
+            <input type="hidden" id="idProduto">
+            <label for="nomeProduto">Nome do Produto:</label>
+            <input type="text" id="nomeProduto" required />
+            <label for="testeProduto">Teste:</label>
+            <input type="text" id="testeProduto" required />
+            <button type="submit">Salvar</button>
+        </form>
+    </div>
+
+    <script type="module" src="./js/estoque.js"></script>
+    <script type="module" src="./js/popup.js"></script>
+</body>
+
+</html>

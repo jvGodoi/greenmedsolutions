@@ -7,12 +7,16 @@
   <title>Controle de Estoque</title>
   <link rel="stylesheet" href="./css/estoque.css" />
   <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/popup.css" />
+  <link
+  href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+  rel="stylesheet">
   <link rel="shortcut icon" href="./icones/favicon.ico" type="image/x-icon" />
 </head>
 
 <body>
   <nav class="navegacao reduzido">
-    <img src="./img/seta-voltar.svg" alt="" srcset="" class="navegacao-seta--voltar" />
+    <img src="./img/seta-voltar.svg" alt="" class="navegacao-seta--voltar" />
     <div class="navegacao-logo">
       <a href="./index.html" class="navegacao-logo--voltar-login">
         <img src="./img/logo.png" alt="" class="navegacao-logo-img" />
@@ -23,7 +27,7 @@
       <ul class="navegacao-container--menu">
         <li>
           <a href="./estoque.html">
-            <img src="./icones/estoque.svg" alt="" srcset="" />
+            <img src="./icones/estoque.svg" alt="" />
             Controle Estoque
           </a>
         </li>
@@ -51,10 +55,11 @@
       <div class="container-conteudo-principal-cabecalho--perfil">
         <h3>Usuário</h3>
         <a href="#">
-          <img src="./icones/notificacoes.svg" alt="" srcset="" class="container-conteudo-principal-cabecalho--perfil-notificacoes" />
+          <img src="./icones/notificacoes.svg" alt=""
+            class="container-conteudo-principal-cabecalho--perfil-notificacoes" />
         </a>
         <a href="">
-          <img src="./img/perfil.png" alt="" srcset="" class="container-conteudo-principal-cabecalho--perfil-usuario" />
+          <img src="./img/perfil.png" alt="" class="container-conteudo-principal-cabecalho--perfil-usuario" />
         </a>
       </div>
     </div>
@@ -62,97 +67,49 @@
       <div class="container-conteudo-principal--produtos-cabecalho">
         <h2>Produtos</h2>
         <div class="container-conteudo-principal--produtos-cabecalho-filtro">
-          <img src="./icones/filtrar-alternativa.svg" alt="" class="container-conteudo-principal--produtos-cabecalho-filtro--btn-filtrar" />
+          <img src="./icones/filtrar-alternativa.svg" alt=""
+            class="container-conteudo-principal--produtos-cabecalho-filtro--btn-filtrar" />
           <div class="container-conteudo-principal--produtos-cabecalho-filtro-pesquisa">
-            <input type="search" class="container-conteudo-principal--produtos-cabecalho-filtro-pesquisa-btn-pesquisa" placeholder="Search" />
-            <img src="./img/search.svg" class="container-conteudo-principal--produtos-cabecalho-filtro-pesquisa-btn-pesquisa--search" alt="" srcset="" />
+            <input type="search" class="container-conteudo-principal--produtos-cabecalho-filtro-pesquisa-btn-pesquisa"
+              placeholder="Search" />
+            <img src="./img/search.svg"
+              class="container-conteudo-principal--produtos-cabecalho-filtro-pesquisa-btn-pesquisa--search" alt="" />
           </div>
-          <a href="#" id="" class="container-conteudo-principal--produtos-cabecalho-filtro--btn-novo-produto">Novo Produto</a>
-          <a href="#" id="" class="container-conteudo-principal--produtos-cabecalho-filtro--btn-novo-produto_respon">
-            <img src="./icones/adicionar.svg" alt="" srcset="">
-          </a>
+          <a href="#" id="novoProduto"
+            class="container-conteudo-principal--produtos-cabecalho-filtro--btn-novo-produto">Novo Produto</a>
+<!--             <a href="#" id="" class="container-conteudo-principal--produtos-cabecalho-filtro--btn-novo-produto_respon">
+              <img src="./icones/adicionar.svg" alt="" srcset="">
+            </a> -->
         </div>
-      </div>
-      <div class="container-conteudo-principal--produtos--status">
-        <ul>
-          <li>
-            <a href="#" class="container-conteudo-principal--produtos--status--stat1">Todos</a>
-          </li>
-          <li>
-            <a href="#" class="container-conteudo-principal--produtos--status--stat2">Disponiveis</a>
-          </li>
-          <li>
-            <a href="#" class="container-conteudo-principal--produtos--status--stat2">Indisponiveis</a>
-          </li>
-        </ul>
-      </div>
-      <div class="container-conteudo-principal--produtos--status-lista">
-        <form class="container-conteudo-principal--produtos--status-lista--form">
-          <!-- <label for="status" >Escolha um status:</label> -->
-          <select id="status" class="container-conteudo-principal--produtos--status-lista--form--selecao" name="status">
-            <option value="maçã">Todos</option>
-            <option value="banana">Disponíveis</option>
-            <option value="laranja">Indisponíveis</option>
-          </select>
-        </form>
       </div>
       <div class="container-conteudo-principal--produtos-tabela">
         <table class="container-conteudo-principal--produtos--tabela--estoque">
           <thead>
             <tr>
-              <th>
-              </th>
-              <th class="tabela-titulo">
-                ID
-                <img src="./img/botao-filtro2.svg" alt="" srcset="" />
-              </th>
-              <th class="tabela-titulo">
-                Nome
-                <img src="./img/botao-filtro2.svg" alt="" srcset="" />
-              </th>
-              <th class="tabela-titulo">
-                Teste
-                <img src="./img/botao-filtro2.svg" alt="" srcset="" />
-              </th>
+              <th></th>
+              <th class="tabela-titulo">ID</th>
+              <th class="tabela-titulo">Nome</th>
+              <th class="tabela-titulo">Teste</th>
               <th class="expandir"></th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td><input type="checkbox" class="tabela-checkbox" /></td>
-              <td>1</td>
-              <td>Echinacea</td>
-              <td>Avenir</td>
-              <td class="expandir">...</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" class="tabela-checkbox" /></td>
-              <td>2</td>
-              <td>Camomila</td>
-              <td>Segoe UI</td>
-              <td class="expandir">...</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" class="tabela-checkbox" /></td>
-              <td>3</td>
-              <td>Erva Doce</td>
-              <td>Roboto Slab</td>
-              <td class="expandir">...</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" class="tabela-checkbox" /></td>
-              <td>4</td>
-              <td>Hortelã</td>
-              <td>Roboto</td>
-              <td class="expandir">...</td>
-            </tr>
+          <tbody id="produtosTabela">
           </tbody>
         </table>
       </div>
     </div>
   </div>
 
-  <script src="./js/script.js"></script>
+  <div id="popupNovoProduto" class="popup">
+    <div class="popup-content">
+      <span class="close-btn" id="fecharPopup">&times;</span>
+      <iframe src="./popup.html" width="100%" height="100%"></iframe>
+    </div>
+  </div>
+
+  <script type="module" src="./js/estoque.js"></script>
+  <script type="module" src="./js/popup.js"></script>
+  <script type="module" src="./js/script.js"></script>
 </body>
 
 </html>
