@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../../../flutter/estoque"
+		},
+		{
+			"path": ".."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "GreenMed Solutions",
+		"liveServer.settings.port": 5501
+	}
+}
