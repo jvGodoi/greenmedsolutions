@@ -1,4 +1,6 @@
+/* ================== TOKENS ================== */
 :root {
+  /* cores originais */
   --verde-principal: #249479;
   --verde-sombra: #1e816a;
   --verde-hover: #17755f;
@@ -11,179 +13,233 @@
   --preto: #000;
   --preto-sombra: rgba(0, 0, 0, 0.2);
   --botao-pesquisar: #d6c8ae;
+
+  /* tema (light) */
+  --bg: #ffffff;              /* fundo da página */
+  --text: #1f2328;            /* texto padrão */
+  --text-strong: #111418;     /* títulos */
+  --text-muted: #6b7280;      /* subtítulos/placeholder */
+
+  --surface-1: #ffffff;       /* cards/painéis */
+  --surface-2: #f5f6f8;       /* cabeçalho de tabela / barras */
+  --surface-3: #eceff1;       /* listras alternadas */
+  --border-weak: #e5e7eb;     /* bordas leves */
+
+  /* menu lateral */
+  --nav-bg: #ffffff;
+  --nav-text: #111111;
+  --nav-border: #e5e7eb;
+  --nav-hover: #f3f4f6;
+
+  /* inputs */
+  --input-bg: #ffffff;
+  --input-text: #1f2328;
+  --input-border: #d1d5db;
+  --placeholder: #9aa0a6;
+
+  /* tipografia global */
+  --fs-base: 1.6rem;  /* 16px (com html:62.5%) */
+  --fs-h1: 3.2rem;
+  --fs-h2: 2.4rem;
+  --fs-h3: 1.9rem;
+
+  /* ===== Acessibilidade (controlados por JS) ===== */
+  --a11y-font-scale: 1;   /* 1.00..1.50 (em passos de 0.10) */
+  --a11y-letter-unit: 0;  /* 0..5 -> *0.05rem */
+  --a11y-line-scale: 1;   /* 1.00..2.25 (passos 0.25) */
 }
 
-html {
-  font-size: 62.5%;
+/* ===== DARK THEME overrides ===== */
+html[data-theme="dark"]{
+  --bg: #0f1216;
+  --text: #e6e9ee;
+  --text-strong: #f5f7fb;
+  --text-muted: #b6beca;
+
+  --surface-1: #181a1f;
+  --surface-2: #1f2228;
+  --surface-3: #252932;
+  --border-weak: #2f3540;
+
+  --nav-bg: #111418;
+  --nav-text: #f2f4f8;
+  --nav-border: #2a2f36;
+  --nav-hover: #1b1f24;
+
+  --input-bg: #1f2228;
+  --input-text: #f2f4f8;
+  --input-border: #2f3540;
+  --placeholder: #9aa0a6;
 }
 
+/* ===== SEPIA THEME overrides ===== */
+html[data-theme="sepia"]{
+  --bg:#f6f0e2; --text:#3a2f22; --text-strong:#2d2419; --text-muted:#6e5a46;
+  --surface-1:#efe6d5; --surface-2:#e7dcc6; --surface-3:#e0d3bc; --border-weak:#d3c5ad;
+  --nav-bg:#efe6d5; --nav-text:#2d2419; --nav-border:#d3c5ad; --nav-hover:#e7dcc6;
+  --input-bg:#fffaf0; --input-text:#2d2419; --input-border:#ccb894; --placeholder:#8a775e;
+}
+
+/* ===== HIGH CONTRAST overrides ===== */
+html[data-theme="high"]{
+  --bg:#000; --text:#fff; --text-strong:#fff; --text-muted:#fff;
+  --surface-1:#000; --surface-2:#000; --surface-3:#000; --border-weak:#fff;
+  --nav-bg:#000; --nav-text:#fff; --nav-border:#fff; --nav-hover:#111;
+  --input-bg:#000; --input-text:#fff; --input-border:#fff; --placeholder:#fff;
+}
+html[data-theme="high"] a{ text-decoration: underline; }
+
+/* ================== BASE ================== */
+html { font-size: calc(62.5% * var(--a11y-font-scale)); } /* 1rem = 10px * escala */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  text-decoration: none;
-  list-style: none;
-  font-family: "inter", sans-serif;
+  margin: 0; padding: 0; box-sizing: border-box;
+  text-decoration: none; list-style: none;
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
-main {
-  display: flex;
-  align-items: center;
-  height: 100vh;
+html, body{
+  background: var(--bg) !important;
+  color: var(--text);
+  min-height: 100dvh;
 }
 
-h1 {
-  font-size: 2.8rem;
+body{
+  font-size: var(--fs-base);
+  letter-spacing: calc(var(--a11y-letter-unit) * 0.05rem);
+  line-height: calc(1.4 * var(--a11y-line-scale));
 }
 
-h2 {
-  font-size: 2.4rem;
+main { display: flex; align-items: center; height: 100vh; }
+
+/* ===== Inverter cores (independente do tema) ===== */
+html[data-invert="1"]{
+  filter: invert(1) hue-rotate(180deg);
+}
+/* mantém imagens/mídias com cores naturais quando invertido */
+html[data-invert="1"] img,
+html[data-invert="1"] video,
+html[data-invert="1"] .keep-colors{
+  filter: invert(1) hue-rotate(180deg);
 }
 
-h3 {
-  font-size: 2rem;
+/* Tipografia global para áreas de conteúdo */
+.container-conteudo-principal h1{ color: var(--text-strong); font-size: var(--fs-h1); line-height: 1.2; }
+.container-conteudo-principal h2{ color: var(--text-strong); font-size: var(--fs-h2); line-height: 1.25; }
+.container-conteudo-principal h3{ color: var(--text-strong); font-size: var(--fs-h3); line-height: 1.3; }
+.container-conteudo-principal,
+.container-conteudo-principal p,
+.container-conteudo-principal span,
+.container-conteudo-principal li,
+.container-conteudo-principal label{ color: var(--text); }
+.container-conteudo-principal a{ color: var(--text); }
+
+/* Responsivo suave da tipografia */
+@media (max-width: 560px){
+  :root{
+    --fs-base: 1.5rem;
+    --fs-h1: 2.6rem;
+    --fs-h2: 2.1rem;
+    --fs-h3: 1.8rem;
+  }
 }
 
-p,
-a,
-th,
-td,
-label,
-input {
-  font-size: 1.6rem;
-}
-
-.login {
-  background-color: var(--branco);
+/* ================== LOGIN ================== */
+.login{
+  background-color: var(--surface-1);
   width: auto;
   height: 559px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  box-shadow: 0px 0px 10px 2px var(--preto-sombra);
+  box-shadow: 0 0 10px 2px var(--preto-sombra);
   border-radius: 10px;
 }
+.img-login{ display: block; width: 100%; object-fit: cover; }
 
-.img-login {
-  display: block;
-  width: 100%;
-  object-fit: cover;
+@media (max-width: 800px){
+  .img-login{ display: none; }
+  main{ align-items: normal; }
+  .login{ height: auto; box-shadow: none; width: auto; justify-content: center; grid-template-columns: 1fr; }
 }
 
-@media (max-width: 800px) {
-  .img-login {
-    display: none;
-  }
-
-  main {
-    align-items: normal;
-  }
-
-  .login {
-    height: auto;
-    box-shadow: none;
-    width: auto;
-    justify-content: center;
-    grid-template-columns: 1fr;
-  }
-
-  p,
-  a,
-  th,
-  td,
-  label,
-  input {
-    font-size: 1.4rem;
-  }
-}
-
-.voltar-login {
-  color: var(--preto-sombra);
-}
-
-.btn-filtrar {
-  cursor: pointer;
-}
-
-.tabela-entrada span {
-  background-color: #98eef399;
-  color: #146c72;
-  border-radius: 30px;
-  padding: 5px 20px;
-}
-
-.tabela-saida span {
-  background-color: #fc9a9a99;
-  color: #bd0d0d;
-  border-radius: 30px;
-  padding: 5px 20px;
-}
-
-.tabela-transf span {
-  background-color: #ace4a799;
-  color: #17700f;
-  border-radius: 30px;
-  padding: 5px 20px;
-}
-
-.tabela-ajuste span {
-  background-color: #fae18999;
-  color: #aa5200;
-  border-radius: 30px;
-  padding: 5px 20px;
-}
-
-/* estilo.css */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-th,
-td {
-  border: 1px solid #ddd;
+/* ================== TABELAS ================== */
+table{ width: 100%; border-collapse: collapse; margin-top: 20px; background: var(--surface-1); }
+th, td{
+  border: 1px solid var(--border-weak);
   padding: 10px;
   text-align: left;
+  color: var(--text);
 }
+thead th{
+  background: var(--surface-2);
+  color: var(--text-strong);
+}
+tbody tr:nth-child(even) td{ background: var(--surface-3); }
 
-button {
-  margin: 5px;
-  padding: 5px 10px;
-  cursor: pointer;
-}
+/* Status pills (mantidas suas cores) */
+.tabela-entrada span{ background-color: #98eef399; color: #146c72; border-radius: 30px; padding: 5px 20px; }
+.tabela-saida span{   background-color: #fc9a9a99; color: #bd0d0d; border-radius: 30px; padding: 5px 20px; }
+.tabela-transf span{  background-color: #ace4a799; color: #17700f; border-radius: 30px; padding: 5px 20px; }
+.tabela-ajuste span{  background-color: #fae18999; color: #aa5200; border-radius: 30px; padding: 5px 20px; }
+
+/* ================== BOTÕES ================== */
+button{ margin: 5px; padding: 5px 10px; cursor: pointer; }
 button.editar-produto{
   background-color: transparent;
   background-image: url("../img/edit.svg");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-  outline: none;
-  border: none;
-  height: 25px;
-  margin: 0;
-    width: 30px; 
-  font-size: 0px;
-  margin-left: 10px;
+  outline: none; border: none;
+  height: 25px; width: 30px; font-size: 0; margin-left: 10px;
 }
-
 button.deletar-produto{
-/*   background-color: var(--cinza);
-  color: var(--cinza-escuro);
-  border: 1px solid #8a8a8a; */
   background-image: url("../img/delete_.svg");
   background-repeat: no-repeat;
   background-position: center;
-  width: 30px;
   background-size: contain;
   background-color: transparent;
-  border: none;
-  font-size: 0;
-  margin: 0 10px;
+  border: none; font-size: 0;
+  width: 30px; height: 25px; margin: 0 10px;
 }
 
-/* input[type="text"] {
-  padding: 5px;
-  margin: 5px;
-} */
+/* ================== MENU LATERAL ================== */
+.navegacao{
+  background: var(--nav-bg) !important;
+  color: var(--nav-text) !important;
+  border-right: 1px solid var(--nav-border);
+  box-shadow: 0 0 0 1px var(--nav-border) inset;
+}
+.navegacao a{ color: var(--nav-text) !important; }
+.navegacao-container--menu li a{
+  display: flex; align-items: center; gap: .5rem;
+  padding: .5rem .75rem; border-radius: .5rem;
+}
+.navegacao-container--menu li a:hover{ background: var(--nav-hover); }
+.navegacao .divider, .navegacao hr{ border-color: var(--nav-border); }
+.navegacao svg{ color: var(--nav-text); fill: currentColor; }
+/* opcional para <img> monocromáticos */
+html[data-theme="dark"] .navegacao img.icon{ filter: brightness(0) invert(1); }
+html[data-theme="dark"] .navegacao-logo-img.logo-escurecivel{ filter: brightness(0) invert(1); }
+
+/* ================== INPUTS (busca, etc.) ================== */
+input[type="text"], input[type="search"], input[type="number"], select, textarea{
+  background: var(--input-bg);
+  color: var(--input-text);
+  border: 1px solid var(--input-border);
+}
+input::placeholder, textarea::placeholder{ color: var(--placeholder); }
+
+/* ================== AJUSTES DE TEXTO NO DARK (garantia) ================== */
+html[data-theme="dark"] .text-muted,
+html[data-theme="dark"] .muted,
+html[data-theme="dark"] small{ color: var(--text-muted) !important; }
+
+/* (Opcional) se tiver cards/painéis específicos */
+.card, .panel{
+  background: var(--surface-1);
+  color: var(--text);
+  border: 1px solid var(--border-weak);
+  box-shadow: none;
+}
