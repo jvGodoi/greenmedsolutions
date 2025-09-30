@@ -1,0 +1,172 @@
+/* ===================== LAYOUT DA PÁGINA ===================== */
+.container-configuracoes{
+  height: 100%;
+  width: 100%;
+  display: grid;
+  gap: 1rem;
+
+  /* herda a tipografia global do style.css */
+  font-size: var(--fs-base);
+}
+.container-configuracoes h1{ font-size: var(--fs-h1); line-height: 1.2; margin: 0 0 .75rem 0; }
+.container-configuracoes h2{ font-size: var(--fs-h2); line-height: 1.25; margin: 0 0 .75rem 0; }
+.container-configuracoes h3{ font-size: var(--fs-h3); line-height: 1.3; margin: 0 0 .5rem 0; }
+
+/* evita fontes “forçadas” locais */
+.container-configuracoes h1,
+.container-configuracoes h2,
+.container-configuracoes h3,
+.container-configuracoes p,
+.container-configuracoes label{ font-size: inherit; }
+
+.configuracoes-temas{ align-self: start; justify-items: start; }
+
+/* ===================== BOTÕES DA PÁGINA ===================== */
+.configuracoes-temas button{
+  margin: 20px 0;
+  background: transparent;
+  border: 1px solid grey;
+  border-radius: 4px;
+  transition: background-color .2s ease, color .2s ease, border-color .2s ease;
+  padding: .6rem 1.2rem;
+  cursor: pointer;
+}
+.configuracoes-temas button:hover{ background-color: rgb(175,175,175); }
+
+.btn-idioma{
+  border: 1px solid red;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  padding: .6rem 1rem;
+  border-radius: 4px;
+}
+
+/* ===================== PAINEL DE ACESSIBILIDADE ===================== */
+.a11y-panel{
+  color: var(--panel-text);
+  padding: 1rem 1.5rem 1.25rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 20px;
+  justify-content: center;
+
+  /* herda fonte do container (nada de 1rem fixo) */
+  font-size: inherit;
+}
+@media (max-width: 500px){ .a11y-panel{ grid-template-columns: 1fr; } }
+
+.a11y-title{ margin: 0 0 .75rem 0; }
+.a11y-row{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: .75rem;
+}
+.a11y-label{ white-space: nowrap; }
+
+.a11y-ctrl{ display: inline-flex; align-items: center; gap: .5rem; }
+.a11y-btn{
+  border: 2px solid var(--border);
+  background: #fff;
+  font-weight: 700;
+  line-height: 1;
+  border-radius: .2rem;
+  cursor: pointer;
+  padding: .45rem .6rem;
+}
+.a11y-btn button{ padding: 10px; }
+
+.a11y-out{
+  display: inline-block; min-width: 2.25rem; text-align: center;
+  border: 2px solid var(--border); background: #fff;
+  border-radius: .2rem; font-variant-numeric: tabular-nums;
+  padding: .2rem .4rem;
+}
+
+.a11y-select{
+  border: 2px solid var(--border);
+  background: #fff;
+  color: inherit;
+  padding: .35rem .65rem;
+  border-radius: .35rem;
+  min-width: 12rem;
+}
+
+.a11y-switch{
+  border: 2px solid var(--border);
+  background: transparent;
+  padding: .35rem .75rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.a11y-switch[aria-checked="true"]{ background: #0077cc; color: #fff; }
+
+.a11y-reset{
+  background: transparent;
+  padding: .4rem .75rem;
+  border-radius: .25rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* leitor de tela */
+.sr-only{
+  position: absolute !important;
+  width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+@media (max-width: 560px){
+  .a11y-row{ grid-template-columns: 1fr; }
+  .a11y-label{ margin-bottom: .25rem; }
+}
+
+/* ===================== ESTADOS / TEMAS ===================== */
+/* botão de tema ativo */
+.btn-tema.is-active,
+.btn-tema[aria-pressed="true"]{
+  background-color: #111;
+  color: #fff;
+  border-color: #111;
+}
+
+/* alto contraste */
+html[data-theme="high"] .a11y-btn,
+html[data-theme="high"] .a11y-out,
+html[data-theme="high"] .a11y-select,
+html[data-theme="high"] .a11y-reset,
+html[data-theme="high"] .a11y-switch{ border-width: 3px; }
+html[data-theme="high"] a{ text-decoration: underline; }
+html[data-theme="high"] .btn-tema.is-active{ background: #ffeb3b; color:#000; border-color:#ffeb3b; }
+
+/* dark: contraste */
+html[data-theme="dark"] .configuracoes-temas button{ color:#f2f4f8; border-color:#9aa0a6; background:transparent; }
+html[data-theme="dark"] .configuracoes-temas button:hover{ background:#2a2a2a; }
+html[data-theme="dark"] .btn-tema{ color:#f2f4f8; border-color:#9aa0a6; }
+html[data-theme="dark"] .btn-tema.is-active,
+html[data-theme="dark"] .btn-tema[aria-pressed="true"]{ background:#3a3a3a; color:#fff; border-color:#bdbdbd; }
+
+html[data-theme="dark"] .a11y-btn,
+html[data-theme="dark"] .a11y-switch,
+html[data-theme="dark"] .a11y-reset{ color:#f2f4f8; border-color:#9aa0a6; background:#222; }
+html[data-theme="dark"] .a11y-btn:hover,
+html[data-theme="dark"] .a11y-switch:hover,
+html[data-theme="dark"] .a11y-reset:hover{ background:#2a2a2a; }
+
+html[data-theme="dark"] .btn-idioma{ color:#f2f4f8; border-color:#9aa0a6; background:transparent; }
+html[data-theme="dark"] .btn-idioma:hover{ background:#2a2a2a; }
+
+/* títulos/labels claros no dark (cores vêm do style.css) */
+html[data-theme="dark"] .container-conteudo-principal h1,
+html[data-theme="dark"] .container-conteudo-principal h2,
+html[data-theme="dark"] .container-conteudo-principal h3{ color: var(--text-strong) !important; }
+html[data-theme="dark"] .a11y-title{ color: #d9dde3; }
+html[data-theme="dark"] .a11y-label{ color: #e6e9ee; }
+
+/* bordas no dark */
+html[data-theme="dark"] .a11y-panel,
+html[data-theme="dark"] .configuracoes-temas button,
+html[data-theme="dark"] .btn-idioma{ border-color: #9aa0a6; }
