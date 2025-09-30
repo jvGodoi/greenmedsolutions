@@ -1,126 +1,151 @@
+/* ================== Reset mínimo e tipografia ================== */
 *{
-    font-family: "inter";
-    border: none;
-}
-
-/* Popup */
-.popup {
-    display: none;
-    /* Inicialmente escondido */
+    font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    box-sizing: border-box;
+  }
+  
+  /* ================== POPUP OVERLAY ================== */
+  .popup{
+    display: none;                 /* escondido por padrão */
     position: fixed;
-    top: 0;
-    left: 0;
+    inset: 0;                      /* top:0; right:0; bottom:0; left:0 */
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    /* Fundo escuro */
+    background-color: rgba(0,0,0,.5);  /* backdrop */
     justify-content: center;
     align-items: center;
     z-index: 9999;
-    overflow: hidden;
-    /* Esconde rolagem do body */
-}
-
-/* Caixa do conteúdo do popup - Aumentando tamanho geral */
-.popup-content {
-    background-color: white;
+    overflow: hidden;              /* evita scroll do body por trás */
+  }
+  
+  /* Sugestão: quando abrir o popup, adicione uma classe ao body via JS:
+     body.modal-open { overflow: hidden; } */
+  
+  /* ================== CAIXA DE CONTEÚDO ================== */
+  .popup-content{
+    background: var(--surface-1);
+    color: var(--text);
+    border: 1px solid var(--border-weak);
+    border-radius: 10px;
     padding: 20px;
-    border-radius: 8px;
     width: 80%;
-    /* Largura maior */
     max-width: 800px;
-    /* Máxima largura do popup */
-    height: 450px;
-    /* Altura fixa maior */
-  /*   text-align: left; */
+    height: 450px;                 /* altura desejada */
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    /* Alinha os elementos ao topo */
     position: relative;
-    overflow: hidden;
-    /* Garante que a rolagem interna seja controlada */
-}
-.popup-content h2{
+    overflow: hidden;              /* rolagem fica no form */
+  }
+  
+  .popup-content h2{
     text-align: center;
     margin-bottom: 30px;
-    color: var(--cinza-escuro);
-}
-#nomeProduto{
-    margin-bottom: 20px;
-}
-/* Caixa interna que contém os campos de formulário */
-.popup-content form {
+    color: var(--text-strong);
+  }
+  
+  #nomeProduto{ margin-bottom: 20px; }
+  
+  /* ================== FORMULÁRIO INTERNO ================== */
+  .popup-content form{
     display: flex;
     flex-direction: column;
     gap: 8px;
-    /* Espaçamento entre os campos */
     width: 100%;
     height: 100%;
     max-height: 100%;
-    overflow-y: auto;
-    /* Permite rolagem no formulário */
+    overflow-y: auto;              /* rola somente o form */
     flex-grow: 1;
-    /* Faz o formulário crescer para ocupar o espaço restante */
     margin-bottom: 0;
-    /* Remove qualquer margem extra que possa estar causando o espaço */
-}
-
-.popup-content label{
+  }
+  
+  .popup-content label{
     font-weight: 600;
     text-transform: uppercase;
-    color: var(--cinza-escuro);
-}
-
-/* Estilo para os inputs do formulário */
-.popup-content input{
+    color: var(--text-strong);
+    font-size: .9rem;
+    letter-spacing: .02em;
+  }
+  
+  /* Inputs */
+  .popup-content input,
+  .popup-content select,
+  .popup-content textarea{
     width: 100%;
     padding: 10px;
     margin: 5px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-/* Botão de salvar */
-.popup-content button {
-    padding: 10px 20px;
-    background-color: var(--verde-principal);
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
+    background: var(--input-bg);
+    color: var(--input-text);
+    border: 1px solid var(--input-border);
+    border-radius: 6px;
+    outline: none;
+    transition: box-shadow .2s ease, border-color .2s ease, background-color .2s ease;
+  }
+  
+  .popup-content input::placeholder,
+  .popup-content textarea::placeholder{
+    color: var(--placeholder);
+  }
+  
+  /* Focus visível e acessível */
+  .popup-content input:focus,
+  .popup-content select:focus,
+  .popup-content textarea:focus{
+    border-color: var(--verde-principal);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--verde-principal) 25%, transparent);
+  }
+  
+  /* ================== BOTÕES ================== */
+  .popup-content button{
+    display: inline-block;
+    padding: 14px 18px;
     margin-top: 24px;
-    font-weight: 600;
+    background-color: var(--verde-principal);
+    color: #ffffff;
+    border: 1px solid var(--verde-principal);
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 700;
     text-transform: uppercase;
-    padding: 15px;
-    /* Mantém o espaçamento entre o botão e o conteúdo */
-}
-
-/* Botão de fechar */
-.close-btn {
+    letter-spacing: .02em;
+    transition: filter .2s ease, transform .02s ease;
+  }
+  .popup-content button:hover{ filter: brightness(.94); }
+  .popup-content button:active{ transform: translateY(1px); }
+  
+  /* ================== FECHAR (X) ================== */
+  .close-btn{
     position: absolute;
     top: 10px;
     right: 10px;
-    font-size: 24px;
-    color: #333;
-    background: none;
-    border: none;
+    inline-size: 36px;
+    block-size: 36px;
+    display: grid;
+    place-items: center;
+    font-size: 22px;
+    color: var(--text);
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 999px;
     cursor: pointer;
-}
-
-.close-btn:hover {
-    color: red;
-}
-
-/* Responsividade para dispositivos menores */
-@media (max-width: 768px) {
-    .popup-content {
-        width: 90%;
-        /* Ajusta a largura para dispositivos menores */
+    transition: background-color .2s ease, color .2s ease, border-color .2s ease;
+  }
+  .close-btn:hover{
+    background: color-mix(in srgb, #ff3b30 12%, transparent);
+    color: #ff3b30;
+    border-color: color-mix(in srgb, #ff3b30 30%, transparent);
+  }
+  
+  /* ================== RESPONSIVO ================== */
+  @media (max-width: 768px){
+    .popup-content{ width: 92%; height: auto; max-height: 80vh; }
+    .popup-content input{ padding: 9px; }
+  }
+  
+  /* ================== PREFERÊNCIAS DE MOVIMENTO ================== */
+  @media (prefers-reduced-motion: reduce){
+    .popup, .popup-content, .popup-content *{
+      transition: none !important;
     }
-
-    .popup-content input {
-        padding: 8px;
-    }
-}
+  }
+  
