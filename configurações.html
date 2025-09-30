@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="settings.title">Configurações</title>
+
+  <link rel="stylesheet" href="./css/estoque.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/popup.css" />
+  <link rel="stylesheet" href="./css/configuracoes.css" />
+  <link rel="shortcut icon" href="./icones/favicon.ico" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="navegacao reduzido">
+    <img src="./img/seta-voltar.svg" alt="" class="navegacao-seta--voltar" />
+    <div class="navegacao-logo">
+      <a href="./index.html" class="navegacao-logo--voltar-login">
+        <img src="./img/logo.png" alt="" class="navegacao-logo-img" />
+      </a>
+      <h3 class="navegacao-logo-titulo-">GreenMed<br />Solutions</h3>
+    </div>
+    <div class="navegacao-container">
+      <ul class="navegacao-container--menu">
+        <li>
+          <a href="./estoque.html">
+            <img src="./icones/estoque.svg" alt="" />
+            <span data-i18n="menu.stock">Controle Estoque</span>
+          </a>
+        </li>
+        <li>
+          <a href="./movimentacoes.html">
+            <img src="./icones/movimentacoes.svg" alt="" />
+            <span data-i18n="menu.movements">Movimentações</span>
+          </a>
+        </li>
+      </ul>
+      <ul class="navegacao-container--menu">
+        <li>
+          <a href="#">
+            <img src="./icones/configuracoes.svg" alt="" />
+            <span data-i18n="menu.settings">Configurações</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container-conteudo-principal">
+    <div class="container-conteudo-principal-cabecalho">
+      <h1 data-i18n="settings.title">Configurações</h1>
+      <div class="container-conteudo-principal-cabecalho--perfil">
+        <h3 data-i18n="user.title">Usuário</h3>
+        <a href="#">
+          <img src="./icones/notificacoes.svg" alt="" class="container-conteudo-principal-cabecalho--perfil-notificacoes" />
+        </a>
+        <a href="">
+          <img src="./img/perfil.png" alt="" class="container-conteudo-principal-cabecalho--perfil-usuario" />
+        </a>
+      </div>
+    </div>
+
+    <div class="container-conteudo-principal--produtos">
+      <div class="container-conteudo-principal--produtos-cabecalho container-configuracoes">
+
+        <!-- TEMAS -->
+        <div class="configuracoes-temas">
+          <h2 data-i18n="settings.themes">Temas</h2>
+          <br>
+          <button id="tema-claro">Claro</button>
+          <button id="tema-escuro">Escuro</button>
+        </div>
+
+        <!-- IDIOMAS -->
+        <div class="configuracoes-temas">
+          <h2>Idiomas</h2>
+          <br>
+          <button class="btn-idioma" data-lang="pt-BR">
+            <img src="./img/br.svg" alt="">
+            Português - Brasil
+          </button>
+          <button class="btn-idioma" data-lang="en-US">
+            <img src="./img/eua.svg" alt="">
+            English
+          </button>
+          <button class="btn-idioma" data-lang="es-ES">
+            <img src="./img/es.svg" alt="">
+            Español
+          </button>
+        </div>
+
+
+        <!-- ACESSIBILIDADE -->
+        <div class="configuracoes-temas">
+          <h2 data-i18n="settings.accessibility">Acessibilidade</h2>
+
+          <!-- Painel de Acessibilidade -->
+          <section class="a11y-panel" role="region" aria-labelledby="a11y-title">
+
+            <div class="a11y-row">
+              <label class="a11y-label" for="out-font" data-i18n="a11y.font">Tamanho da Fonte:</label>
+              <div class="a11y-ctrl">
+                <button type="button" class="a11y-btn" data-action="inc-font" aria-label="Aumentar tamanho da fonte">+</button>
+                <output id="out-font" class="a11y-out" aria-live="polite">0</output>
+                <button type="button" class="a11y-btn" data-action="dec-font" aria-label="Diminuir tamanho da fonte">−</button>
+              </div>
+            </div>
+
+            <div class="a11y-row">
+              <label class="a11y-label" for="out-letter" data-i18n="a11y.letter">Espaçamento das Letras:</label>
+              <div class="a11y-ctrl">
+                <button type="button" class="a11y-btn" data-action="inc-letter">+</button>
+                <output id="out-letter" class="a11y-out" aria-live="polite">1</output>
+                <button type="button" class="a11y-btn" data-action="dec-letter">−</button>
+              </div>
+            </div>
+
+            <div class="a11y-row">
+              <label class="a11y-label" for="out-line" data-i18n="a11y.line">Espaçamento das Linhas:</label>
+              <div class="a11y-ctrl">
+                <button type="button" class="a11y-btn" data-action="inc-line">+</button>
+                <output id="out-line" class="a11y-out" aria-live="polite">1</output>
+                <button type="button" class="a11y-btn" data-action="dec-line">−</button>
+              </div>
+            </div>
+
+            <div class="a11y-row">
+              <label class="a11y-label" for="theme-select" data-i18n="a11y.contrast">Cores/Contraste:</label>
+              <div class="a11y-ctrl">
+                <select id="theme-select" class="a11y-select">
+                  <option value="light">Claro</option>
+                  <option value="dark">Escuro</option>
+                  <option value="sepia">Sépia</option>
+                  <option value="high">Alto Contraste</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="a11y-row">
+              <span class="a11y-label" data-i18n="a11y.invert">Inverter cores:</span>
+              <div class="a11y-ctrl">
+                <button type="button" id="invert-switch" class="a11y-switch" role="switch" aria-checked="false">
+                  Desativado
+                </button>
+              </div>
+            </div>
+
+            <div class="a11y-actions">
+              <button type="button" id="a11y-reset" class="a11y-reset" data-i18n="a11y.reset">Redefinir</button>
+            </div>
+
+            <div class="sr-only" aria-live="polite" id="a11y-live"></div>
+          </section>
+          <!-- /Painel de Acessibilidade -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./js/estoque.js"></script>
+  <script type="module" src="./js/popup.js"></script>
+  <script type="module" src="./js/script.js"></script>
+  <script src="./js/acessibilidade.js" defer></script>
+  <script src="./js/i18n.js" defer></script>
+</body>
+
+</html>
