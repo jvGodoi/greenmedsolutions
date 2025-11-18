@@ -23,9 +23,8 @@
   
   /* ================== CAIXA DE CONTEÚDO ================== */
   .popup-content{
-    background: var(--surface-1);
     color: var(--text);
-    border: 1px solid var(--border-weak);
+    border: none;
     border-radius: 10px;
     padding: 20px;
     width: 80%;
@@ -40,7 +39,7 @@
   
   .popup-content h2{
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     color: var(--text-strong);
   }
   
@@ -138,7 +137,7 @@
   
   /* ================== RESPONSIVO ================== */
   @media (max-width: 768px){
-    .popup-content{ width: 92%; height: auto; max-height: 80vh; }
+    .popup-content{ width: 92%; }
     .popup-content input{ padding: 9px; }
   }
   
@@ -149,3 +148,159 @@
     }
   }
   
+
+  /* ===== Novo Produto – Layout Moderno ===== */
+:root{
+  /* usa sua paleta existente com fallback */
+  --np-bg: var(--bg, #ffffff);
+  --np-text: var(--text, #1f2328);
+  --np-strong: var(--text-strong, #111418);
+  --np-muted: var(--text-muted, #6b7280);
+  --np-surface: var(--surface-1, #ffffff);
+  --np-border: var(--border-weak, #e5e7eb);
+  --np-input-bg: var(--input-bg, #ffffff);
+  --np-input-text: var(--input-text, #1f2328);
+  --np-input-border: var(--input-border, #d1d5db);
+  --np-primary: var(--verde-principal, #249479);
+  --np-primary-border: var(--verde-sombra, #1e816a);
+  --np-primary-hover: var(--verde-hover, #17755f);
+  --np-white: var(--branco, #fff);
+  --np-shadow: var(--preto-sombra, rgba(0,0,0,.2));
+  --np-danger: #e74c3c;
+}
+
+.np-body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background: var(--np-bg);
+  color: var(--np-text);
+  display:grid;
+  place-items:center;
+  padding:12px;
+}
+
+.np-card{
+  width:min(720px, 100%);
+  border-radius:14px;
+  display:grid;
+  grid-template-rows:auto 1fr;
+  overflow: none;
+}
+
+.np-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:16px;
+  border-bottom:1px solid var(--np-border);
+}
+.np-title{
+  margin:0;
+  font-size:18px;
+  font-weight:800;
+  color:var(--np-strong);
+}
+.np-subtitle{
+  margin:4px 0 0;
+  font-size:13px;
+  color:var(--np-muted);
+}
+
+.np-btn-icon{
+  width:34px; height:34px;
+  display:grid; place-items:center;
+  border-radius:8px;
+  border:1px solid var(--np-border);
+  background:var(--np-surface);
+  cursor:pointer;
+}
+.np-btn-icon:hover{ background:#f5f6f8; }
+.np-btn-icon:focus{ outline:2px solid var(--np-primary); outline-offset:2px; }
+
+.np-form{
+  padding:16px;
+  display:grid;
+  gap:14px;
+}
+
+.np-field{ display:grid; gap:6px; }
+.np-label{ font-size:13px; color:var(--np-strong); }
+.np-req{ color:var(--np-danger); margin-left:2px; }
+
+.np-input{
+  height:40px;
+  padding:0 12px;
+  border-radius:10px;
+  border:1px solid var(--np-input-border);
+  background:var(--np-input-bg);
+  color:var(--np-input-text);
+}
+.np-input::placeholder{ color:#9aa0a6; }
+.np-input:focus{ outline:2px solid var(--np-primary); outline-offset:2px; }
+
+.np-help{ font-size:12px; color:var(--np-muted); }
+.np-error{ font-size:12px; color:var(--np-danger); min-height:16px; }
+
+.is-invalid{ border-color: var(--np-danger) !important; }
+
+.np-foot{
+  display:flex;
+  justify-content:flex-end;
+  gap:8px;
+  padding:12px 16px 16px;
+  border-top:1px solid var(--np-border);
+}
+
+.np-btn-primary{
+  height:38px; padding:0 14px; border-radius:10px;
+  border:1px solid var(--np-primary-border);
+  background:var(--np-primary); color:var(--np-white);
+  font-weight:700; cursor:pointer;
+}
+.np-btn-primary:hover{ background:var(--np-primary-hover); }
+.np-btn-primary:disabled{ opacity:.7; cursor:not-allowed; }
+
+.np-btn-secondary{
+  height:38px; padding:0 14px; border-radius:10px;
+  border:1px solid var(--np-border);
+  background:transparent; color:var(--np-text);
+  cursor:pointer;
+}
+.np-btn-secondary:hover{ background:#eceff1; }
+
+/* responsivo: se quiser duas colunas no futuro, é só usar grid aqui */
+@media (min-width: 640px){
+  .np-form{ grid-template-columns: 1fr 1fr; }
+  .np-field:nth-child(1){ grid-column:1 / -1; } /* nome em full-row */
+  .np-foot{ grid-column:1 / -1; }
+}
+
+/* popup.css – garanta que use as variáveis do tema */
+.popup-content {
+  background: var(--surface-1);
+  color: var(--text);
+  border: 1px solid var(--border-weak);
+}
+
+.popup .close-btn {
+  color: var(--text);
+  background: transparent;
+}
+
+.popup-content h2 { color: var(--text-strong); }
+
+/* Campos e botões dentro do iframe */
+.form-produto input[type="text"],
+.form-produto input[type="number"],
+.form-produto input[type="search"],
+.form-produto textarea,
+.form-produto select {
+  background: var(--input-bg);
+  color: var(--input-text);
+  border: 1px solid var(--input-border);
+}
+
+.form-produto input::placeholder,
+.form-produto textarea::placeholder {
+  color: var(--placeholder);
+}
