@@ -5,27 +5,57 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Adicionar Novo Produto</title>
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/popup.css" />
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/popup.css" />
+    <!-- NOVO: estilos do novo produto -->
+    <link rel="stylesheet" href="./css/novo-produto.css" />
 </head>
 
-<body>
-    <div class="popup-content">
-        <h2>Adicionar Novo Produto</h2>
-        <form id="formProduto" class="form-produto">
-            <input type="hidden" id="idProduto">
-            <label for="nomeProduto">Nome do Produto:</label>
-            <input type="text" id="nomeProduto" required />
-            <label for="testeProduto">Teste:</label>
-            <input type="text" id="testeProduto" required />
-            <button type="submit">Salvar</button>
+<body class="np-body">
+    <main class="np-card" role="dialog" aria-labelledby="np-title" aria-describedby="np-desc">
+        <header class="np-head">
+            <div>
+                <h2 id="np-title" class="np-title">Adicionar novo produto</h2>
+                <p id="np-desc" class="np-subtitle">Preencha os campos abaixo para cadastrar o produto.</p>
+            </div>
+            <button type="button" class="np-btn-icon" id="np-close" aria-label="Fechar">
+                <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+                    <path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" />
+                </svg>
+            </button>
+        </header>
+
+        <form id="formProduto" class="np-form" novalidate>
+            <input type="hidden" id="idProduto" name="idProduto" />
+
+            <div class="np-field">
+                <label for="nomeProduto" class="np-label">Nome do Produto <span class="np-req">*</span></label>
+                <input type="text" id="nomeProduto" name="nomeProduto" class="np-input" placeholder="Ex.: Dipirona 500mg" required autocomplete="off" />
+                <span class="np-help">Use um nome claro para facilitar a busca.</span>
+                <span class="np-error" data-error-for="nomeProduto"></span>
+            </div>
+
+            <div class="np-field">
+                <label for="testeProduto" class="np-label">Teste <span class="np-req">*</span></label>
+                <input type="text" id="testeProduto" name="testeProduto" class="np-input" placeholder="Ex.: Lote A / Série 123" required autocomplete="off" />
+                <span class="np-help">Campo livre para anotações/tags internas.</span>
+                <span class="np-error" data-error-for="testeProduto"></span>
+            </div>
+
+            <footer class="np-foot">
+                <button type="button" class="np-btn-secondary" id="np-cancelar">Cancelar</button>
+                <button type="submit" class="np-btn-primary" id="np-salvar">Salvar</button>
+            </footer>
         </form>
-    </div>
+    </main>
+
+    <script src="./js/modo-escuro.js" defer></script>
     <script src="./js/i18n.js" defer></script>
     <script type="module" src="./js/acessibilidade.js"></script>
-    <script type="module" src="./js/estoque.js"></script>
-    <script type="module" src="./js/popup.js"></script>
+    <script type="module">
+    </script>
 </body>
 
 </html>
