@@ -9,7 +9,12 @@
   <link rel="stylesheet" href="./css/estoque.css">
   <!-- <link rel="stylesheet" href="./css/movimentacoes.css"> -->
   <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/popup.css">
+  <link rel="stylesheet" href="./css/filtro.css">
+  <link rel="stylesheet" href="./css/notificacoes.css">
   <link rel="shortcut icon" href="./icones/favicon.ico" type="image/x-icon">
+
+
 </head>
 
 <body>
@@ -36,28 +41,42 @@
           </a>
         </li>
       </ul>
-      <ul class="navegacao-container--menu">
-        <li>
-          <a href="./configuracoes.html" data-i18n="nav.settings">
-            <img src="./icones/configuracoes.svg" alt="" />
-            Configurações
-          </a>
-        </li>
-      </ul>
     </div>
   </nav>
 
   <div class="container-conteudo-principal">
     <div class="container-conteudo-principal-cabecalho">
-      <h1 data-i18n="movements.title">Movimentações</h1>
+      <div class="titulo">
+        <h1 data-i18n="stock.title">Movimentações</h1>
+      </div>
       <div class="container-conteudo-principal-cabecalho--perfil">
-        <h3 data-i18n="user.label">Usuário</h3>
-        <a href="#">
-          <img src="./icones/notificacoes.svg" alt="" class="container-conteudo-principal-cabecalho--perfil-notificacoes" />
-        </a>
-        <a href="">
-          <img src="./img/perfil.png" alt="" class="container-conteudo-principal-cabecalho--perfil-usuario" />
-        </a>
+        <div class="container">
+          <div class="toggle-container">
+            <div class="toggle-switch" id="themeToggle">
+              <div class="toggle-slider">☀️</div>
+            </div>
+          </div>
+        </div>
+        <!-- Notificações -->
+        <button id="btnNotificacoes" class="notif-btn-icon" aria-haspopup="dialog" aria-controls="notifPopover" aria-expanded="false" title="Abrir notificações (N)">
+          <svg width="32px" height="32px" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18.1336 11C18.7155 16.3755 21 18 21 18H3C3 18 6 15.8667 6 8.4C6 6.70261 6.63214 5.07475 7.75736 3.87452C8.88258 2.67428 10.4087 2 12 2C12.3373 2 12.6717 2.0303 13 2.08949" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M19 8C20.6569 8 22 6.65685 22 5C22 3.34315 20.6569 2 19 2C17.3431 2 16 3.34315 16 5C16 6.65685 17.3431 8 19 8Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M13.73 21C13.5542 21.3031 13.3019 21.5547 12.9982 21.7295C12.6946 21.9044 12.3504 21.9965 12 21.9965C11.6496 21.9965 11.3054 21.9044 11.0018 21.7295C10.6982 21.5547 10.4458 21.3031 10.27 21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+          <span id="notifBadge" class="notif-badge" aria-hidden="true">0</span>
+          <span id="notifLive" class="notif-visually-hidden" aria-live="polite"></span>
+        </button>
+
+        <div class="container-conteudo-principal-cabecalho--perfil-user">
+          <button id="btnProfile" class="profile-trigger-btn" aria-haspopup="dialog" aria-controls="profile-modal" aria-expanded="false" title="Abrir perfil">
+            <svg class="profile" width="32px" height="32px" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7 18V17C7 14.2386 9.23858 12 12 12V12C14.7614 12 17 14.2386 17 17V18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+              <path d="M12 12C13.6569 12 15 10.6569 15 9C15 7.34315 13.6569 6 12 6C10.3431 6 9 7.34315 9 9C9 10.6569 10.3431 12 12 12Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"></circle>
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
 
@@ -65,15 +84,25 @@
       <div class="container-conteudo-principal--produtos-cabecalho">
         <h2 data-i18n="movements.products">Produtos</h2>
         <div class="container-conteudo-principal--produtos-cabecalho-filtro">
-          <img src="./icones/filtrar-alternativa.svg" alt="" class="container-conteudo-principal--produtos-cabecalho-filtro--btn-filtrar" />
+          <!-- botão de filtro -->
+          <button id="btnAbrirFiltro" class="flt-btn" type="button" title="Filtrar produtos">
+            <svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18">
+              <path d="M4 6h16M7 12h10M10 18h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+            Filtro
+          </button>
+
           <div class="container-conteudo-principal--produtos-cabecalho-filtro-pesquisa">
             <input type="search" class="container-conteudo-principal--produtos-cabecalho-filtro-pesquisa-btn-pesquisa" placeholder="Pesquisar..." data-i18n-placeholder="search.placeholder" />
             <img src="./img/search.svg" class="container-conteudo-principal--produtos-cabecalho-filtro-pesquisa-btn-pesquisa--search" alt="" />
           </div>
-          <a href="#" class="container-conteudo-principal--produtos-cabecalho-filtro--btn-novo-produto" data-i18n="movements.newProduct">
+
+          <!-- desktop -->
+          <a href="#" id="novoProduto" class="container-conteudo-principal--produtos-cabecalho-filtro--btn-novo-produto" data-i18n="movements.newProduct">
             Novo Produto
           </a>
-          <a href="#" class="container-conteudo-principal--produtos-cabecalho-filtro--btn-novo-produto_respon">
+          <!-- mobile responsivo -->
+          <a href="#" id="novoProdutoRes" class="container-conteudo-principal--produtos-cabecalho-filtro--btn-novo-produto_respon" aria-label="Novo Produto">
             <img src="./icones/adicionar.svg" alt="">
           </a>
         </div>
@@ -108,32 +137,34 @@
               <th class="tabela-titulo" data-i18n="table.id">ID</th>
               <th class="tabela-titulo" data-i18n="table.name">Nome</th>
               <th class="tabela-titulo" data-i18n="table.status">Status</th>
-              <th class="expandir"></th>
+              <th class="tabela-titulo" data-i18n="table.status">Descrição</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
+          <tbody id="produtosTabela">
+            <tr data-id="1" data-nome="Echinacea" data-categoria="Plantas" data-quantidade="10" data-fornecedor="Fornecedor A">
               <td><input type="checkbox" class="tabela-checkbox"></td>
               <td>1</td>
               <td>Echinacea</td>
               <td class="tabela-entrada"><span data-i18n="movement.entry">Entrada</span></td>
-              <td class="expandir"><span>...</span></td>
+              <td class="expandir">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit perferendis explicabo, libero accusantium exercitationem nihil ab provident natus. Inventore maxime laudantium a ratione consequatur temporibus explicabo voluptas deleniti exercitationem minus.</p>
+              </td>
             </tr>
-            <tr>
+            <tr data-id="2" data-nome="Camomila" data-categoria="Plantas" data-quantidade="0" data-fornecedor="Fornecedor B">
               <td><input type="checkbox" class="tabela-checkbox"></td>
               <td>2</td>
               <td>Camomila</td>
               <td class="tabela-saida"><span data-i18n="movement.exit">Saída</span></td>
               <td class="expandir"><span>...</span></td>
             </tr>
-            <tr>
+            <tr data-id="3" data-nome="Erva Doce" data-categoria="Plantas" data-quantidade="75" data-fornecedor="Fornecedor C">
               <td><input type="checkbox" class="tabela-checkbox"></td>
               <td>3</td>
               <td>Erva Doce</td>
               <td class="tabela-transf"><span data-i18n="movement.transfer">Transferência</span></td>
               <td class="expandir"><span>...</span></td>
             </tr>
-            <tr>
+            <tr data-id="4" data-nome="Hortelã" data-categoria="Plantas" data-quantidade="12" data-fornecedor="Fornecedor A">
               <td><input type="checkbox" class="tabela-checkbox"></td>
               <td>4</td>
               <td>Hortelã</td>
@@ -146,10 +177,218 @@
     </div>
   </div>
 
+  <!-- MODAL PERFIL (inalterado) -->
+  <div class="profile-backdrop" id="profile-modal" aria-hidden="true">
+    <div class="profile-modal" role="dialog" aria-modal="true" aria-labelledby="profile-modal-title" aria-describedby="profile-modal-desc">
+      <div class="profile-panel">
+        <div class="profile-header">
+          <h2 class="profile-title" id="profile-modal-title">Perfil</h2>
+          <button class="profile-btn-secondary" id="profile-close" aria-label="Fechar">✕</button>
+        </div>
+        <div class="profile-body">
+          <p id="profile-modal-desc" class="profile-help">
+            Adicione uma foto e preencha seus dados para personalizar sua conta.
+          </p>
+          <form id="profileForm" novalidate>
+            <div class="profile-grid">
+              <div class="profile-avatar-uploader">
+                <div class="profile-avatar-preview" id="avatarPreview">
+                  <img id="avatarImg" alt="Pré-visualização da foto de perfil" src="" style="display:none;" />
+                  <svg id="avatarPh" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                  </svg>
+                </div>
+
+                <div class="profile-avatar-actions">
+                  <label for="avatarInput" class="profile-btn-secondary">Escolher foto</label>
+                  <input id="avatarInput" class="profile-sr-only" type="file" accept="image/*" />
+                  <button type="button" id="btnRemovePhoto" class="profile-btn-secondary">Remover</button>
+                </div>
+
+                <span class="profile-help">Formatos: JPG, PNG, WEBP. Recomenda-se imagem quadrada.</span>
+              </div>
+
+              <div class="profile-fields">
+                <div class="profile-field">
+                  <label class="profile-label" for="username">Usuário *</label>
+                  <input id="username" class="profile-input" name="username" type="text" placeholder="Usuário" autocomplete="username" required />
+                  <span class="profile-error" data-error-for="username"></span>
+                </div>
+
+                <div class="profile-two-cols">
+                  <div class="profile-field">
+                    <label class="profile-label" for="firstName">Nome</label>
+                    <input id="firstName" class="profile-input" name="firstName" type="text" placeholder="Nome" autocomplete="given-name" />
+                  </div>
+                  <div class="profile-field">
+                    <label class="profile-label" for="lastName">Sobrenome</label>
+                    <input id="lastName" class="profile-input" name="lastName" type="text" placeholder="Sobrenome" autocomplete="family-name" />
+                  </div>
+                </div>
+
+                <div class="profile-field">
+                  <label class="profile-label" for="email">Email *</label>
+                  <input id="email" class="profile-input" name="email" type="email" placeholder="voce@exemplo.com" autocomplete="email" required />
+                  <span class="profile-error" data-error-for="email"></span>
+                </div>
+
+                <div class="profile-field">
+                  <label class="profile-label" for="birth">Data de Nascimento</label>
+                  <input id="birth" class="profile-input" name="birth" type="date" />
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="profile-footer">
+          <button class="profile-btn-secondary" id="profile-cancel">Cancelar</button>
+          <button class="profile-btn-primary" id="profile-save">Salvar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast simples -->
+  <div class="profile-toast" id="profile-toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- ====== NOTIFICAÇÕES ====== -->
+  <div id="notifPopover" class="notif-popover" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="notifTitle">
+    <div class="notif-pop-head">
+      <div>
+        <div id="notifTitle" class="notif-title">Notificações</div>
+        <div id="notifSubtitle" class="notif-subtitle">(0 novas)</div>
+      </div>
+      <button id="btnFechar" class="notif-btn-close" aria-label="Fechar">
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+          <path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="notif-action-bar">
+      <button id="btnExcluirTodas" class="notif-btn-danger" type="button">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+          <path d="M3 6h18M9 6V4h6v2m-8 0l1 14h8l1-14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+        Excluir todas
+      </button>
+    </div>
+
+    <div id="listaNotificacoes" class="notif-list" role="listbox" aria-label="Lista de notificações"></div>
+
+    <div id="selBar" class="notif-selbar" aria-hidden="true">
+      <span id="selInfo" class="notif-sel-info">0 selecionadas</span>
+      <div>
+        <button id="btnSelecionarTudo" class="notif-btn-ghost" type="button">Selecionar tudo</button>
+        <button id="btnExcluirSelecionadas" class="notif-btn-danger" type="button" disabled>Excluir selecionadas</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="notifBackdrop" class="notif-modal-backdrop" aria-hidden="true"></div>
+  <div id="notifModal" class="notif-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modalTitle">
+    <div class="notif-modal-card">
+      <div class="notif-modal-head">
+        <div id="modalTitle" class="notif-modal-title">Título</div>
+        <button id="btnModalClose" class="notif-btn-close" aria-label="Fechar detalhamento">
+          <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" />
+          </svg>
+        </button>
+      </div>
+      <div class="notif-modal-body">
+        <div id="modalMeta" class="notif-modal-meta"></div>
+        <div id="modalText" class="notif-modal-text"></div>
+      </div>
+      <div class="notif-modal-foot">
+        <a id="modalLink" class="notif-btn-primary" href="#" role="button">Ir para</a>
+        <button id="btnModalClose2" class="notif-btn-ghost" type="button">Fechar</button>
+      </div>
+    </div>
+  </div>
+  <!-- ====== /NOTIFICAÇÕES ====== -->
+
+  <!-- ====== FILTRO ====== -->
+  <div id="filtroBackdrop" class="flt-backdrop" aria-hidden="true"></div>
+
+  <div id="filtroModal" class="flt-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="fltTitle" aria-describedby="fltDesc">
+    <div class="flt-card">
+      <div class="flt-head">
+        <div>
+          <h2 id="fltTitle" class="flt-title">Filtrar produtos</h2>
+          <p id="fltDesc" class="flt-subtitle">Refine a lista pelos campos abaixo</p>
+        </div>
+        <button id="btnFiltroFecharX" class="flt-btn-icon" aria-label="Fechar filtro">
+          <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" />
+          </svg>
+        </button>
+      </div>
+
+      <form id="filtroForm" class="flt-body">
+        <div class="flt-field">
+          <label for="fId" class="flt-label">ID</label>
+          <input id="fId" name="id" class="flt-input" type="text" placeholder="ex.: 1023" />
+        </div>
+
+        <div class="flt-field">
+          <label for="fNome" class="flt-label">Nome</label>
+          <input id="fNome" name="nome" class="flt-input" type="text" placeholder="ex.: Echinacea" />
+        </div>
+
+        <div class="flt-field">
+          <label for="fCategoria" class="flt-label">Categoria</label>
+          <input id="fCategoria" name="categoria" class="flt-input" type="text" placeholder="ex.: Plantas" />
+        </div>
+
+        <div class="flt-two">
+          <div class="flt-field">
+            <label for="fQtdMin" class="flt-label">Qtd. Mín.</label>
+            <input id="fQtdMin" name="qtdMin" class="flt-input" type="number" inputmode="numeric" min="0" placeholder="0" />
+          </div>
+          <div class="flt-field">
+            <label for="fQtdMax" class="flt-label">Qtd. Máx.</label>
+            <input id="fQtdMax" name="qtdMax" class="flt-input" type="number" inputmode="numeric" min="0" placeholder="1000" />
+          </div>
+        </div>
+
+        <div class="flt-field">
+          <label for="fFornecedor" class="flt-label">Fornecedor</label>
+          <input id="fFornecedor" name="fornecedor" class="flt-input" type="text" placeholder="ex.: Fornecedor A" />
+        </div>
+      </form>
+
+      <div class="flt-foot">
+        <button id="btnFiltroLimpar" class="flt-btn-ghost" type="button">Limpar</button>
+        <div class="flt-foot-right">
+          <button id="btnFiltroCancelar" class="flt-btn-ghost" type="button">Cancelar</button>
+          <button id="btnFiltroAplicar" class="flt-btn-primary" type="button">Aplicar filtros</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Popup "Novo Produto" -->
+  <div id="popupNovoProduto" class="popup" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="npTitle" style="display:none;">
+    <div class="popup-content">
+      <span class="close-btn" id="fecharPopup" aria-label="Fechar">×</span>
+      <h2 id="npTitle" class="visualmente-oculto">Novo Produto</h2>
+      <iframe src="./popup.html" width="100%" height="100%" title="Formulário de novo produto"></iframe>
+    </div>
+  </div>
+  <!-- ====== /FILTRO ====== -->
+
+  <!-- Scripts -->
+  <script type="module" src="./js/modo-escuro.js"></script>
+  <script type="module" src="./js/perfil.js"></script>
+  <script type="module" src="./js/notificacoes.js"></script>
   <script src="./js/i18n.js" defer></script>
   <script type="module" src="./js/acessibilidade.js"></script>
+  <script type="module" src="./js/movimentacoes.js"></script>
+  <script type="module" src="./js/filtro.js"></script>
   <script src="./js/script.js"></script>
 </body>
 
 </html>
-
