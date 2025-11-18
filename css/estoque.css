@@ -156,7 +156,10 @@ body{
 
 /* células */
 .expandir{ width:100%; text-align:right; padding-right:10px; }
-.expandir span{ font-size:2rem; color: var(--text); }
+.expandir p{ font-size:1.5rem; color: var(--text);   max-width: 550px;
+  overflow: hidden;
+  text-overflow: ellipsis;   /* se quiser reticências na linha única */
+  white-space: nowrap;}
 .expandir span:hover{ cursor:pointer; }
 
 .container-conteudo-principal--produtos--tabela--estoque td:not(.expandir),
@@ -175,7 +178,7 @@ body{
   .navegacao-container--menu li a{ padding:15px 20px; margin:5px 0; }
 
   .container-conteudo-principal--produtos-cabecalho{ flex-direction:column; align-items:start; margin-bottom:40px; }
-  .container-conteudo-principal--produtos{ box-shadow:none; height:auto; width:100vw; margin-left:0; }
+  .container-conteudo-principal--produtos{ box-shadow:none; height:auto; width:100vw; margin-left:0; margin-top: 42px; }
   .container-conteudo-principal--produtos h2{ font-size:1.8rem; }
 
   .container-conteudo-principal--produtos-cabecalho-filtro{ width:100%; justify-content:normal; }
@@ -209,4 +212,10 @@ body{
   }
 
   .container-conteudo-principal--produtos-tabela{ width:100%; overflow:auto; }
+}
+@media (max-width: 500px){
+  .container-conteudo-principal-cabecalho--perfil{
+    width: 100%;
+    justify-content: space-between;
+  }
 }
