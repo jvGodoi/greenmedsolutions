@@ -11,7 +11,9 @@
   <link rel="stylesheet" href="./css/popup.css" />
   <link rel="stylesheet" href="./css/notificacoes.css" />
   <link rel="stylesheet" href="./css/filtro.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
   <link rel="shortcut icon" href="./icones/favicon.ico" type="image/x-icon" />
 </head>
 
@@ -56,21 +58,34 @@
           </div>
         </div>
         <!-- Notificações -->
-        <button id="btnNotificacoes" class="notif-btn-icon" aria-haspopup="dialog" aria-controls="notifPopover" aria-expanded="false" title="Abrir notificações (N)">
-          <svg width="32px" height="32px" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M18.1336 11C18.7155 16.3755 21 18 21 18H3C3 18 6 15.8667 6 8.4C6 6.70261 6.63214 5.07475 7.75736 3.87452C8.88258 2.67428 10.4087 2 12 2C12.3373 2 12.6717 2.0303 13 2.08949" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-            <path d="M19 8C20.6569 8 22 6.65685 22 5C22 3.34315 20.6569 2 19 2C17.3431 2 16 3.34315 16 5C16 6.65685 17.3431 8 19 8Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-            <path d="M13.73 21C13.5542 21.3031 13.3019 21.5547 12.9982 21.7295C12.6946 21.9044 12.3504 21.9965 12 21.9965C11.6496 21.9965 11.3054 21.9044 11.0018 21.7295C10.6982 21.5547 10.4458 21.3031 10.27 21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        <button id="btnNotificacoes" class="notif-btn-icon" aria-haspopup="dialog" aria-controls="notifPopover"
+          aria-expanded="false" title="Abrir notificações (N)">
+          <svg width="32px" height="32px" stroke-width="1.5" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M18.1336 11C18.7155 16.3755 21 18 21 18H3C3 18 6 15.8667 6 8.4C6 6.70261 6.63214 5.07475 7.75736 3.87452C8.88258 2.67428 10.4087 2 12 2C12.3373 2 12.6717 2.0303 13 2.08949"
+              stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path
+              d="M19 8C20.6569 8 22 6.65685 22 5C22 3.34315 20.6569 2 19 2C17.3431 2 16 3.34315 16 5C16 6.65685 17.3431 8 19 8Z"
+              stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path
+              d="M13.73 21C13.5542 21.3031 13.3019 21.5547 12.9982 21.7295C12.6946 21.9044 12.3504 21.9965 12 21.9965C11.6496 21.9965 11.3054 21.9044 11.0018 21.7295C10.6982 21.5547 10.4458 21.3031 10.27 21"
+              stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
           </svg>
           <span id="notifBadge" class="notif-badge" aria-hidden="true">0</span>
           <span id="notifLive" class="notif-visually-hidden" aria-live="polite"></span>
         </button>
 
         <div class="container-conteudo-principal-cabecalho--perfil-user">
-          <button id="btnProfile" class="profile-trigger-btn" aria-haspopup="dialog" aria-controls="profile-modal" aria-expanded="false" title="Abrir perfil">
-            <svg class="profile" width="32px" height="32px" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M7 18V17C7 14.2386 9.23858 12 12 12V12C14.7614 12 17 14.2386 17 17V18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
-              <path d="M12 12C13.6569 12 15 10.6569 15 9C15 7.34315 13.6569 6 12 6C10.3431 6 9 7.34315 9 9C9 10.6569 10.3431 12 12 12Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+          <button id="btnProfile" class="profile-trigger-btn" aria-haspopup="dialog" aria-controls="profile-modal"
+            aria-expanded="false" title="Abrir perfil">
+            <svg class="profile" width="32px" height="32px" stroke-width="1.5" viewBox="0 0 24 24" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path d="M7 18V17C7 14.2386 9.23858 12 12 12V12C14.7614 12 17 14.2386 17 17V18" stroke="currentColor"
+                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path
+                d="M12 12C13.6569 12 15 10.6569 15 9C15 7.34315 13.6569 6 12 6C10.3431 6 9 7.34315 9 9C9 10.6569 10.3431 12 12 12Z"
+                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
               <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"></circle>
             </svg>
           </button>
@@ -85,17 +100,21 @@
           <!-- botão que abre o filtro -->
           <button id="btnAbrirFiltro" class="flt-btn" type="button" title="Filtrar produtos">
             <svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18">
-              <path d="M4 6h16M7 12h10M10 18h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              <path d="M4 6h16M7 12h10M10 18h4" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" />
             </svg>
             Filtro
           </button>
 
           <div class="container-conteudo-principal--produtos-cabecalho-filtro-pesquisa">
-            <input type="search" class="container-conteudo-principal--produtos-cabecalho-filtro-pesquisa-btn-pesquisa" placeholder="Pesquisar..." data-i18n-placeholder="search.placeholder" />
-            <img src="./img/search.svg" class="container-conteudo-principal--produtos-cabecalho-filtro-pesquisa-btn-pesquisa--search" alt="" />
+            <input type="search" class="container-conteudo-principal--produtos-cabecalho-filtro-pesquisa-btn-pesquisa"
+              placeholder="Pesquisar..." data-i18n-placeholder="search.placeholder" />
+            <img src="./img/search.svg"
+              class="container-conteudo-principal--produtos-cabecalho-filtro-pesquisa-btn-pesquisa--search" alt="" />
           </div>
 
-          <a href="#" id="novoProduto" class="container-conteudo-principal--produtos-cabecalho-filtro--btn-novo-produto" data-i18n="stock.newProduct">
+          <a href="#" id="novoProduto" class="container-conteudo-principal--produtos-cabecalho-filtro--btn-novo-produto"
+            data-i18n="stock.newProduct">
             Novo Produto
           </a>
         </div>
@@ -111,6 +130,8 @@
               <th class="tabela-titulo" data-i18n="stock.qtd">Quantidade</th>
               <th class="tabela-titulo" data-i18n="stock.fornec">Fornecedor</th>
               <th class="tabela-titulo" data-i18n="stock.test">Descrição</th>
+              <!-- adicionado coluna de ações -->
+              <th class="tabela-titulo" data-i18n="stock.actions">Ações</th>
             </tr>
           </thead>
           <tbody id="produtosTabela">
@@ -120,8 +141,9 @@
     </div>
   </div>
 
-  <!-- Popup Novo Produto (apenas 1 botão de fechar externo) -->
-  <div id="popupNovoProduto" class="popup" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="npTitle" style="display:none;">
+  <!-- Popup Novo Produto -->
+  <div id="popupNovoProduto" class="popup" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="npTitle"
+    style="display:none;">
     <div class="popup-content">
       <span class="close-btn" id="fecharPopup" aria-label="Fechar">×</span>
       <h2 id="npTitle" class="visually-hidden">Novo Produto</h2>
@@ -131,7 +153,8 @@
 
   <!-- Perfil -->
   <div class="profile-backdrop" id="profile-modal" aria-hidden="true">
-    <div class="profile-modal" role="dialog" aria-modal="true" aria-labelledby="profile-modal-title" aria-describedby="profile-modal-desc">
+    <div class="profile-modal" role="dialog" aria-modal="true" aria-labelledby="profile-modal-title"
+      aria-describedby="profile-modal-desc">
       <div class="profile-panel">
         <div class="profile-header">
           <h2 class="profile-title" id="profile-modal-title">Perfil</h2>
@@ -146,8 +169,11 @@
               <!-- Avatar -->
               <div class="profile-avatar-uploader">
                 <div class="profile-avatar-preview" id="avatarPreview">
-                  <img id="avatarImg" alt="Pré-visualização da foto de perfil" src="" style="display:none;" />
-                  <svg id="avatarPh" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <img id="avatarImg" alt="Pré-visualização da foto de perfil" src="/placeholder.svg"
+                    style="display:none;" />
+                  <svg id="avatarPh" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                    aria-hidden="true">
                     <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
                     <circle cx="12" cy="7" r="4" />
                   </svg>
@@ -166,24 +192,28 @@
               <div class="profile-fields">
                 <div class="profile-field">
                   <label class="profile-label" for="username">Usuário *</label>
-                  <input id="username" class="profile-input" name="username" type="text" placeholder="Usuário" autocomplete="username" required />
+                  <input id="username" class="profile-input" name="username" type="text" placeholder="Usuário"
+                    autocomplete="username" required />
                   <span class="profile-error" data-error-for="username"></span>
                 </div>
 
                 <div class="profile-two-cols">
                   <div class="profile-field">
                     <label class="profile-label" for="firstName">Nome</label>
-                    <input id="firstName" class="profile-input" name="firstName" type="text" placeholder="Nome" autocomplete="given-name" />
+                    <input id="firstName" class="profile-input" name="firstName" type="text" placeholder="Nome"
+                      autocomplete="given-name" />
                   </div>
                   <div class="profile-field">
                     <label class="profile-label" for="lastName">Sobrenome</label>
-                    <input id="lastName" class="profile-input" name="lastName" type="text" placeholder="Sobrenome" autocomplete="family-name" />
+                    <input id="lastName" class="profile-input" name="lastName" type="text" placeholder="Sobrenome"
+                      autocomplete="family-name" />
                   </div>
                 </div>
 
                 <div class="profile-field">
                   <label class="profile-label" for="email">Email *</label>
-                  <input id="email" class="profile-input" name="email" type="email" placeholder="voce@exemplo.com" autocomplete="email" required />
+                  <input id="email" class="profile-input" name="email" type="email" placeholder="voce@exemplo.com"
+                    autocomplete="email" required />
                   <span class="profile-error" data-error-for="email"></span>
                 </div>
 
@@ -208,7 +238,8 @@
   <div class="profile-toast" id="profile-toast" role="status" aria-live="polite" aria-atomic="true"></div>
 
   <!-- ====== NOTIFICAÇÕES ====== -->
-  <div id="notifPopover" class="notif-popover" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="notifTitle">
+  <div id="notifPopover" class="notif-popover" role="dialog" aria-modal="true" aria-hidden="true"
+    aria-labelledby="notifTitle">
     <div class="notif-pop-head">
       <div>
         <div id="notifTitle" class="notif-title">Notificações</div>
@@ -224,7 +255,8 @@
     <div class="notif-action-bar">
       <button id="btnExcluirTodas" class="notif-btn-danger" type="button">
         <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-          <path d="M3 6h18M9 6V4h6v2m-8 0l1 14h8l1-14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          <path d="M3 6h18M9 6V4h6v2m-8 0l1 14h8l1-14" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" />
         </svg>
         Excluir todas
       </button>
@@ -236,13 +268,15 @@
       <span id="selInfo" class="notif-sel-info">0 selecionadas</span>
       <div>
         <button id="btnSelecionarTudo" class="notif-btn-ghost" type="button">Selecionar tudo</button>
-        <button id="btnExcluirSelecionadas" class="notif-btn-danger" type="button" disabled>Excluir selecionadas</button>
+        <button id="btnExcluirSelecionadas" class="notif-btn-danger" type="button" disabled>Excluir
+          selecionadas</button>
       </div>
     </div>
   </div>
 
   <div id="notifBackdrop" class="notif-modal-backdrop" aria-hidden="true"></div>
-  <div id="notifModal" class="notif-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modalTitle">
+  <div id="notifModal" class="notif-modal" role="dialog" aria-modal="true" aria-hidden="true"
+    aria-labelledby="modalTitle">
     <div class="notif-modal-card">
       <div class="notif-modal-head">
         <div id="modalTitle" class="notif-modal-title">Título</div>
@@ -267,7 +301,8 @@
   <!-- ====== FILTRO ====== -->
   <div id="filtroBackdrop" class="flt-backdrop" aria-hidden="true"></div>
 
-  <div id="filtroModal" class="flt-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="fltTitle" aria-describedby="fltDesc">
+  <div id="filtroModal" class="flt-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="fltTitle"
+    aria-describedby="fltDesc">
     <div class="flt-card">
       <div class="flt-head">
         <div>
@@ -284,7 +319,7 @@
       <form id="filtroForm" class="flt-body">
         <div class="flt-field">
           <label for="fId" class="flt-label">ID</label>
-          <input id="fId" name="id" class="flt-input" type="text" placeholder="ex.: 1023" />
+          <input id="fId" name="id" class="flt-input" type="number" inputmode="numeric" min="1" placeholder="ex.: 1" />
         </div>
 
         <div class="flt-field">
@@ -292,25 +327,29 @@
           <input id="fNome" name="nome" class="flt-input" type="text" placeholder="ex.: Dipirona 500mg" />
         </div>
 
-        <div class="flt-field">
-          <label for="fCategoria" class="flt-label">Categoria</label>
-          <input id="fCategoria" name="categoria" class="flt-input" type="text" placeholder="ex.: Medicamento" />
-        </div>
-
         <div class="flt-two">
           <div class="flt-field">
             <label for="fQtdMin" class="flt-label">Qtd. Mín.</label>
-            <input id="fQtdMin" name="qtdMin" class="flt-input" type="number" inputmode="numeric" min="0" placeholder="0" />
+            <input id="fQtdMin" name="qtdMin" class="flt-input" type="number" inputmode="numeric" min="0"
+              placeholder="0" />
           </div>
           <div class="flt-field">
             <label for="fQtdMax" class="flt-label">Qtd. Máx.</label>
-            <input id="fQtdMax" name="qtdMax" class="flt-input" type="number" inputmode="numeric" min="0" placeholder="1000" />
+            <input id="fQtdMax" name="qtdMax" class="flt-input" type="number" inputmode="numeric" min="0"
+              placeholder="1000" />
           </div>
         </div>
 
         <div class="flt-field">
           <label for="fFornecedor" class="flt-label">Fornecedor</label>
-          <input id="fFornecedor" name="fornecedor" class="flt-input" type="text" placeholder="ex.: ACME Distribuidora" />
+          <input id="fFornecedor" name="fornecedor" class="flt-input" type="text"
+            placeholder="ex.: ACME Distribuidora" />
+        </div>
+
+        <div class="flt-field">
+          <label for="fDescricao" class="flt-label">Descrição</label>
+          <input id="fDescricao" name="descricao" class="flt-input" type="text"
+            placeholder="ex.: Medicamento anti-inflamatório" />
         </div>
       </form>
 
@@ -326,11 +365,11 @@
   <!-- ====== /FILTRO ====== -->
 
   <!-- Scripts -->
+  <script src="./js/script.js" defer></script>
   <script type="module" src="./js/modo-escuro.js"></script>
   <script type="module" src="./js/perfil.js"></script>
   <script type="module" src="./js/estoque.js"></script>
   <script type="module" src="./js/popup.js"></script>
-  <script type="module" src="./js/script.js"></script>
   <script src="./js/i18n.js" defer></script>
   <script type="module" src="./js/acessibilidade.js"></script>
 
