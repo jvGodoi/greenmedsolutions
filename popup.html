@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Adicionar Novo Produto</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/popup.css" />
     <!-- NOVO: estilos do novo produto -->
@@ -30,18 +32,37 @@
         <form id="formProduto" class="np-form" novalidate>
             <input type="hidden" id="idProduto" name="idProduto" />
 
+            <!-- Updated fields to match the inventory table: Nome, Quantidade, Fornecedor, Descrição -->
             <div class="np-field">
                 <label for="nomeProduto" class="np-label">Nome do Produto <span class="np-req">*</span></label>
-                <input type="text" id="nomeProduto" name="nomeProduto" class="np-input" placeholder="Ex.: Dipirona 500mg" required autocomplete="off" />
+                <input type="text" id="nomeProduto" name="nomeProduto" class="np-input"
+                    placeholder="Ex.: Dipirona 500mg" required autocomplete="off" />
                 <span class="np-help">Use um nome claro para facilitar a busca.</span>
                 <span class="np-error" data-error-for="nomeProduto"></span>
             </div>
 
             <div class="np-field">
-                <label for="testeProduto" class="np-label">Teste <span class="np-req">*</span></label>
-                <input type="text" id="testeProduto" name="testeProduto" class="np-input" placeholder="Ex.: Lote A / Série 123" required autocomplete="off" />
-                <span class="np-help">Campo livre para anotações/tags internas.</span>
-                <span class="np-error" data-error-for="testeProduto"></span>
+                <label for="quantidadeProduto" class="np-label">Quantidade <span class="np-req">*</span></label>
+                <input type="number" id="quantidadeProduto" name="quantidadeProduto" class="np-input"
+                    placeholder="Ex.: 100" required autocomplete="off" min="0" />
+                <span class="np-help">Quantidade em estoque.</span>
+                <span class="np-error" data-error-for="quantidadeProduto"></span>
+            </div>
+
+            <div class="np-field">
+                <label for="fornecedorProduto" class="np-label">Fornecedor <span class="np-req">*</span></label>
+                <input type="text" id="fornecedorProduto" name="fornecedorProduto" class="np-input"
+                    placeholder="Ex.: ACME Distribuidora" required autocomplete="off" />
+                <span class="np-help">Nome do fornecedor.</span>
+                <span class="np-error" data-error-for="fornecedorProduto"></span>
+            </div>
+
+            <div class="np-field">
+                <label for="descricaoProduto" class="np-label">Descrição <span class="np-req">*</span></label>
+                <input type="text" id="descricaoProduto" name="descricaoProduto" class="np-input"
+                    placeholder="Ex.: Lote A / Série 123" required autocomplete="off" />
+                <span class="np-help">Informações adicionais sobre o produto.</span>
+                <span class="np-error" data-error-for="descricaoProduto"></span>
             </div>
 
             <footer class="np-foot">
@@ -51,11 +72,11 @@
         </form>
     </main>
 
+    <!-- Added popup.js module script to handle form submission -->
+    <script type="module" src="./js/popup.js"></script>
     <script src="./js/modo-escuro.js" defer></script>
     <script src="./js/i18n.js" defer></script>
     <script type="module" src="./js/acessibilidade.js"></script>
-    <script type="module">
-    </script>
 </body>
 
 </html>
