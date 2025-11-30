@@ -1,157 +1,179 @@
 /* ================== Reset mínimo e tipografia ================== */
-*{
-    font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    box-sizing: border-box;
-  }
-  
-  /* ================== POPUP OVERLAY ================== */
-  .popup{
-    display: none;                 /* escondido por padrão */
-    position: fixed;
-    inset: 0;                      /* top:0; right:0; bottom:0; left:0 */
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,.5);  /* backdrop */
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    overflow: hidden;              /* evita scroll do body por trás */
-  }
-  
-  /* Sugestão: quando abrir o popup, adicione uma classe ao body via JS:
-     body.modal-open { overflow: hidden; } */
-  
-  /* ================== CAIXA DE CONTEÚDO ================== */
-  .popup-content{
-    color: var(--text);
-    border: none;
-    border-radius: 10px;
-    padding: 20px;
-    width: 80%;
-    max-width: 800px;
-    height: 450px;                 /* altura desejada */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    position: relative;
-    overflow: hidden;              /* rolagem fica no form */
-  }
-  
-  .popup-content h2{
-    text-align: center;
-    margin-bottom: 10px;
-    color: var(--text-strong);
-  }
-  
-  #nomeProduto{ margin-bottom: 20px; }
-  
-  /* ================== FORMULÁRIO INTERNO ================== */
-  .popup-content form{
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    width: 100%;
-    height: 100%;
-    max-height: 100%;
-    overflow-y: auto;              /* rola somente o form */
-    flex-grow: 1;
-    margin-bottom: 0;
-  }
-  
-  .popup-content label{
-    font-weight: 600;
-    text-transform: uppercase;
-    color: var(--text-strong);
-    font-size: .9rem;
-    letter-spacing: .02em;
-  }
-  
-  /* Inputs */
-  .popup-content input,
-  .popup-content select,
-  .popup-content textarea{
-    width: 100%;
-    padding: 10px;
-    margin: 5px 0;
-    background: var(--input-bg);
-    color: var(--input-text);
-    border: 1px solid var(--input-border);
-    border-radius: 6px;
-    outline: none;
-    transition: box-shadow .2s ease, border-color .2s ease, background-color .2s ease;
-  }
-  
-  .popup-content input::placeholder,
-  .popup-content textarea::placeholder{
-    color: var(--placeholder);
-  }
-  
-  /* Focus visível e acessível */
-  .popup-content input:focus,
-  .popup-content select:focus,
-  .popup-content textarea:focus{
-    border-color: var(--verde-principal);
-    box-shadow: 0 0 0 4px color-mix(in srgb, var(--verde-principal) 25%, transparent);
-  }
-  
-  /* ================== BOTÕES ================== */
-  .popup-content button{
-    display: inline-block;
-    padding: 14px 18px;
-    margin-top: 24px;
-    background-color: var(--verde-principal);
-    color: #ffffff;
-    border: 1px solid var(--verde-principal);
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: .02em;
-    transition: filter .2s ease, transform .02s ease;
-  }
-  .popup-content button:hover{ filter: brightness(.94); }
-  .popup-content button:active{ transform: translateY(1px); }
-  
-  /* ================== FECHAR (X) ================== */
-  .close-btn{
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    inline-size: 36px;
-    block-size: 36px;
-    display: grid;
-    place-items: center;
-    font-size: 22px;
-    color: var(--text);
-    background: transparent;
-    border: 1px solid transparent;
-    border-radius: 999px;
-    cursor: pointer;
-    transition: background-color .2s ease, color .2s ease, border-color .2s ease;
-  }
-  .close-btn:hover{
-    background: color-mix(in srgb, #ff3b30 12%, transparent);
-    color: #ff3b30;
-    border-color: color-mix(in srgb, #ff3b30 30%, transparent);
-  }
-  
-  /* ================== RESPONSIVO ================== */
-  @media (max-width: 768px){
-    .popup-content{ width: 92%; }
-    .popup-content input{ padding: 9px; }
-  }
-  
-  /* ================== PREFERÊNCIAS DE MOVIMENTO ================== */
-  @media (prefers-reduced-motion: reduce){
-    .popup, .popup-content, .popup-content *{
-      transition: none !important;
-    }
-  }
-  
+* {
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  box-sizing: border-box;
+}
 
-  /* ===== Novo Produto – Layout Moderno ===== */
-:root{
-  /* usa sua paleta existente com fallback */
+/* ================== POPUP OVERLAY ================== */
+.popup {
+  display: none;
+  /* escondido por padrão */
+  position: fixed;
+  inset: 0;
+  /* top:0; right:0; bottom:0; left:0 */
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* backdrop */
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  overflow: hidden;
+  /* evita scroll do body por trás */
+}
+
+/* Sugestão: quando abrir o popup, adicione uma classe ao body via JS:
+     body.modal-open { overflow: hidden; } */
+
+/* ================== CAIXA DE CONTEÚDO ================== */
+.popup-content {
+  color: var(--text);
+  border: none;
+  border-radius: 10px;
+  padding: 20px;
+  width: 80%;
+  max-width: 800px;
+  height: 450px;
+  /* altura desejada */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  overflow: hidden;
+  /* rolagem fica no form */
+}
+
+.popup-content h2 {
+  text-align: center;
+  margin-bottom: 10px;
+  color: var(--text-strong);
+}
+
+#nomeProduto {
+  margin-bottom: 20px;
+}
+
+/* ================== FORMULÁRIO INTERNO ================== */
+.popup-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  overflow-y: auto;
+  /* rola somente o form */
+  flex-grow: 1;
+  margin-bottom: 0;
+}
+
+.popup-content label {
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-strong);
+  font-size: .9rem;
+  letter-spacing: .02em;
+}
+
+/* Inputs */
+.popup-content input,
+.popup-content select,
+.popup-content textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  background: var(--input-bg);
+  color: var(--input-text);
+  border: 1px solid var(--input-border);
+  border-radius: 6px;
+  outline: none;
+  transition: box-shadow .2s ease, border-color .2s ease, background-color .2s ease;
+}
+
+.popup-content input::placeholder,
+.popup-content textarea::placeholder {
+  color: var(--placeholder);
+}
+
+/* Focus visível e acessível */
+.popup-content input:focus,
+.popup-content select:focus,
+.popup-content textarea:focus {
+  border-color: var(--verde-principal);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--verde-principal) 25%, transparent);
+}
+
+/* ================== BOTÕES ================== */
+.popup-content button {
+  display: inline-block;
+  padding: 14px 18px;
+  margin-top: 24px;
+  background-color: var(--verde-principal);
+  color: #ffffff;
+  border: 1px solid var(--verde-principal);
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+  transition: filter .2s ease, transform .02s ease;
+}
+
+.popup-content button:hover {
+  filter: brightness(0.94);
+}
+
+.popup-content button:active {
+  transform: translateY(1px);
+}
+
+/* ================== FECHAR (X) ================== */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  inline-size: 36px;
+  block-size: 36px;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+  color: var(--text);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color .2s ease, color .2s ease, border-color .2s ease;
+}
+
+.close-btn:hover {
+  background: color-mix(in srgb, #ff3b30 12%, transparent);
+  color: #ff3b30;
+  border-color: color-mix(in srgb, #ff3b30 30%, transparent);
+}
+
+/* ================== RESPONSIVO ================== */
+@media (max-width: 768px) {
+  .popup-content {
+    width: 92%;
+  }
+
+  .popup-content input {
+    padding: 9px;
+  }
+}
+
+/* ================== PREFERÊNCIAS DE MOVIMENTO ================== */
+@media (prefers-reduced-motion: reduce) {
+
+  .popup,
+  .popup-content,
+  .popup-content * {
+    transition: none !important;
+  }
+}
+
+/* ===== Novo Produto – Layout ===== */
+:root {
   --np-bg: var(--bg, #ffffff);
   --np-text: var(--text, #1f2328);
   --np-strong: var(--text-strong, #111418);
@@ -165,114 +187,179 @@
   --np-primary-border: var(--verde-sombra, #1e816a);
   --np-primary-hover: var(--verde-hover, #17755f);
   --np-white: var(--branco, #fff);
-  --np-shadow: var(--preto-sombra, rgba(0,0,0,.2));
+  --np-shadow: var(--preto-sombra, rgba(0, 0, 0, 0.2));
   --np-danger: #e74c3c;
 }
 
-.np-body{
-  margin:0;
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+.np-body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji",
+    "Segoe UI Emoji";
   background: var(--np-bg);
   color: var(--np-text);
-  display:grid;
-  place-items:center;
-  padding:12px;
+  display: grid;
+  place-items: center;
+  padding: 12px;
 }
 
-.np-card{
-  width:min(720px, 100%);
-  border-radius:14px;
-  display:grid;
-  grid-template-rows:auto 1fr;
+.np-card {
+  width: min(720px, 100%);
+  border-radius: 14px;
+  display: grid;
+  grid-template-rows: auto 1fr;
   overflow: none;
 }
 
-.np-head{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:16px;
-  border-bottom:1px solid var(--np-border);
-}
-.np-title{
-  margin:0;
-  font-size:18px;
-  font-weight:800;
-  color:var(--np-strong);
-}
-.np-subtitle{
-  margin:4px 0 0;
-  font-size:13px;
-  color:var(--np-muted);
+.np-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  border-bottom: 1px solid var(--np-border);
 }
 
-.np-btn-icon{
-  width:34px; height:34px;
-  display:grid; place-items:center;
-  border-radius:8px;
-  border:1px solid var(--np-border);
-  background:var(--np-surface);
-  cursor:pointer;
-}
-.np-btn-icon:hover{ background:#f5f6f8; }
-.np-btn-icon:focus{ outline:2px solid var(--np-primary); outline-offset:2px; }
-
-.np-form{
-  padding:16px;
-  display:grid;
-  gap:14px;
+.np-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--np-strong);
 }
 
-.np-field{ display:grid; gap:6px; }
-.np-label{ font-size:13px; color:var(--np-strong); }
-.np-req{ color:var(--np-danger); margin-left:2px; }
-
-.np-input{
-  height:40px;
-  padding:0 12px;
-  border-radius:10px;
-  border:1px solid var(--np-input-border);
-  background:var(--np-input-bg);
-  color:var(--np-input-text);
-}
-.np-input::placeholder{ color:#9aa0a6; }
-.np-input:focus{ outline:2px solid var(--np-primary); outline-offset:2px; }
-
-.np-help{ font-size:12px; color:var(--np-muted); }
-.np-error{ font-size:12px; color:var(--np-danger); min-height:16px; }
-
-.is-invalid{ border-color: var(--np-danger) !important; }
-
-.np-foot{
-  display:flex;
-  justify-content:flex-end;
-  gap:8px;
-  padding:12px 16px 16px;
-  border-top:1px solid var(--np-border);
+.np-subtitle {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: var(--np-muted);
 }
 
-.np-btn-primary{
-  height:38px; padding:0 14px; border-radius:10px;
-  border:1px solid var(--np-primary-border);
-  background:var(--np-primary); color:var(--np-white);
-  font-weight:700; cursor:pointer;
+.np-btn-icon {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  border: 1px solid var(--np-border);
+  background: var(--np-surface);
+  cursor: pointer;
 }
-.np-btn-primary:hover{ background:var(--np-primary-hover); }
-.np-btn-primary:disabled{ opacity:.7; cursor:not-allowed; }
 
-.np-btn-secondary{
-  height:38px; padding:0 14px; border-radius:10px;
-  border:1px solid var(--np-border);
-  background:transparent; color:var(--np-text);
-  cursor:pointer;
+.np-btn-icon:hover {
+  background: #f5f6f8;
 }
-.np-btn-secondary:hover{ background:#eceff1; }
 
-/* responsivo: se quiser duas colunas no futuro, é só usar grid aqui */
-@media (min-width: 640px){
-  .np-form{ grid-template-columns: 1fr 1fr; }
-  .np-field:nth-child(1){ grid-column:1 / -1; } /* nome em full-row */
-  .np-foot{ grid-column:1 / -1; }
+.np-btn-icon:focus {
+  outline: 2px solid var(--np-primary);
+  outline-offset: 2px;
+}
+
+.np-form {
+  padding: 16px;
+  display: grid;
+  gap: 14px;
+}
+
+.np-field {
+  display: grid;
+  gap: 6px;
+}
+
+.np-label {
+  font-size: 13px;
+  color: var(--np-strong);
+}
+
+.np-req {
+  color: var(--np-danger);
+  margin-left: 2px;
+}
+
+.np-input {
+  height: 40px;
+  padding: 0 12px;
+  border-radius: 10px;
+  border: 1px solid var(--np-input-border);
+  background: var(--np-input-bg);
+  color: var(--np-input-text);
+}
+
+.np-input::placeholder {
+  color: #9aa0a6;
+}
+
+.np-input:focus {
+  outline: 2px solid var(--np-primary);
+  outline-offset: 2px;
+}
+
+.np-help {
+  font-size: 12px;
+  color: var(--np-muted);
+}
+
+.np-error {
+  font-size: 12px;
+  color: var(--np-danger);
+  min-height: 16px;
+}
+
+.is-invalid {
+  border-color: var(--np-danger) !important;
+}
+
+.np-foot {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 12px 16px 16px;
+  border-top: 1px solid var(--np-border);
+}
+
+.np-btn-primary {
+  height: 38px;
+  padding: 0 14px;
+  border-radius: 10px;
+  border: 1px solid var(--np-primary-border);
+  background: var(--np-primary);
+  color: var(--np-white);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.np-btn-primary:hover {
+  background: var(--np-primary-hover);
+}
+
+.np-btn-primary:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.np-btn-secondary {
+  height: 38px;
+  padding: 0 14px;
+  border-radius: 10px;
+  border: 1px solid var(--np-border);
+  background: transparent;
+  color: var(--np-text);
+  cursor: pointer;
+}
+
+.np-btn-secondary:hover {
+  background: #eceff1;
+}
+
+@media (min-width: 640px) {
+  .np-form {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .np-field:nth-child(1) {
+    grid-column: 1 / -1;
+  }
+
+  /* nome em full-row */
+  .np-foot {
+    grid-column: 1 / -1;
+  }
 }
 
 /* popup.css – garanta que use as variáveis do tema */
@@ -287,7 +374,9 @@
   background: transparent;
 }
 
-.popup-content h2 { color: var(--text-strong); }
+.popup-content h2 {
+  color: var(--text-strong);
+}
 
 /* Campos e botões dentro do iframe */
 .form-produto input[type="text"],
@@ -303,4 +392,16 @@
 .form-produto input::placeholder,
 .form-produto textarea::placeholder {
   color: var(--placeholder);
+}
+
+.produto-dropdown {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.produto-item:hover {
+  background-color: color-mix(in srgb, var(--np-primary) 10%, transparent);
+}
+
+.produto-item:active {
+  background-color: color-mix(in srgb, var(--np-primary) 20%, transparent);
 }
