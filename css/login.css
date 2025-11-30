@@ -5,12 +5,14 @@ main {
 .conteudo-login {
   padding: 0 60px;
 }
+
 .conteudo-login h2 {
   margin-bottom: 28px;
   text-align: center;
   text-transform: uppercase;
   position: relative;
 }
+
 .conteudo-login h2::before {
   content: "";
   height: 5px;
@@ -23,6 +25,7 @@ main {
   left: 0;
   background-color: var(--verde-principal);
 }
+
 .conteudo-login h2::after {
   content: "";
   height: 5px;
@@ -39,7 +42,7 @@ main {
 .conteudo-login--form {
   display: flex;
   flex-direction: column;
-  gap: 35px;
+  gap: 20px;
 }
 
 .conteudo-login--form input {
@@ -54,6 +57,7 @@ main {
   transition: 0.3s;
   font-size: 1.8rem;
 }
+
 .conteudo-login--form input:hover {
   box-shadow: 0px 0px 5px 0px var(--verde-sombra);
 }
@@ -80,20 +84,43 @@ main {
   background-color: var(--verde-hover);
 }
 
-.input-usuario{
+.input-usuario {
   padding: 20px;
   margin: 0;
 }
+
 .login-usuario,
 .login-senha {
   display: flex;
 }
+
 .login-usuario img,
 .login-senha img {
   padding: 0 20px;
   border-radius: 10px 0px 0px 10px;
   border: 1px solid var(--verde-principal);
   background-color: var(--bg-icone-login);
+}
+
+.cadastro-link {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.cadastro-link p {
+  font-size: 1.4rem;
+  color: var(--text);
+}
+
+.cadastro-link a {
+  color: var(--verde-principal);
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.cadastro-link a:hover {
+  text-decoration: underline;
 }
 
 @media (max-width: 900px) {
@@ -106,6 +133,7 @@ main {
   .conteudo-img {
     display: none;
   }
+
   .conteudo-login {
     text-align: center;
     width: 100%;
