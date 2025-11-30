@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Movimentação</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/popup.css" />
+</head>
+
+<body class="np-body">
+    <main class="np-card" role="dialog" aria-labelledby="np-title" aria-describedby="np-desc">
+        <header class="np-head">
+            <div>
+                <h2 id="np-title" class="np-title">Nova Movimentação</h2>
+                <p id="np-desc" class="np-subtitle">Registre uma movimentação de estoque.</p>
+            </div>
+            <button type="button" class="np-btn-icon" id="np-close" aria-label="Fechar">
+                <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+                    <path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" />
+                </svg>
+            </button>
+        </header>
+
+        <form id="formMovimentacao" class="np-form" novalidate>
+            <input type="hidden" id="idMovimentacao" name="idMovimentacao" />
+
+            <!-- Added product search field with autocomplete -->
+            <div class="np-field">
+                <label for="produtoSearch" class="np-label">Produto <span class="np-req">*</span></label>
+                <div style="position: relative;">
+                    <input type="text" id="produtoSearch" name="produtoSearch" class="np-input"
+                        placeholder="Buscar por nome ou ID" required autocomplete="off" />
+                    <span class="np-help">Digite o nome ou ID do produto para buscar.</span>
+                    <!-- Dropdown de produtos -->
+                    <div id="produtoDropdown" class="produto-dropdown"
+                        style="display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--np-surface); border: 1px solid var(--np-border); border-radius: 8px; max-height: 200px; overflow-y: auto; z-index: 1000;">
+                    </div>
+                </div>
+                <span class="np-error" data-error-for="produtoSearch"></span>
+            </div>
+
+            <input type="hidden" id="produto_id" name="produto_id" />
+            <input type="hidden" id="produto_nome" name="produto_nome" />
+
+            <div class="np-field">
+                <label for="quantidade" class="np-label">Quantidade <span class="np-req">*</span></label>
+                <input type="number" id="quantidade" name="quantidade" class="np-input" placeholder="Ex.: 50" required
+                    autocomplete="off" min="1" />
+                <span class="np-help">Quantidade movimentada.</span>
+                <span class="np-error" data-error-for="quantidade"></span>
+            </div>
+
+            <div class="np-field">
+                <label for="status" class="np-label">Status <span class="np-req">*</span></label>
+                <select id="status" name="status" class="np-input" required>
+                    <option value="">Selecione um status</option>
+                    <option value="entrada">Entrada</option>
+                    <option value="saida">Saída</option>
+                    <option value="transferencia">Transferência</option>
+                    <option value="ajuste">Ajuste</option>
+                </select>
+                <span class="np-error" data-error-for="status"></span>
+            </div>
+
+            <div class="np-field">
+                <label for="responsavel" class="np-label">Responsável <span class="np-req">*</span></label>
+                <input type="text" id="responsavel" name="responsavel" class="np-input" placeholder="Ex.: João Silva"
+                    required autocomplete="off" />
+                <span class="np-help">Quem realizou a movimentação.</span>
+                <span class="np-error" data-error-for="responsavel"></span>
+            </div>
+
+            <div class="np-field">
+                <label for="fornecedor" class="np-label">Fornecedor</label>
+                <input type="text" id="fornecedor" name="fornecedor" class="np-input"
+                    placeholder="Ex.: ACME Distribuidora" autocomplete="off" />
+                <span class="np-help">Opcional - fornecedor da movimentação.</span>
+                <span class="np-error" data-error-for="fornecedor"></span>
+            </div>
+
+            <div class="np-field">
+                <label for="observacoes" class="np-label">Observações</label>
+                <textarea id="observacoes" name="observacoes" class="np-input"
+                    placeholder="Adicione observações sobre a movimentação..." rows="3" autocomplete="off"></textarea>
+                <span class="np-help">Notas adicionais (opcional).</span>
+                <span class="np-error" data-error-for="observacoes"></span>
+            </div>
+
+            <footer class="np-foot">
+                <button type="button" class="np-btn-secondary" id="np-cancelar">Cancelar</button>
+                <button type="submit" class="np-btn-primary" id="np-salvar">Salvar</button>
+            </footer>
+        </form>
+    </main>
+
+    <script type="module" src="./js/popup-movimentacao.js"></script>
+    <script src="./js/modo-escuro.js" defer></script>
+    <script src="./js/i18n.js" defer></script>
+    <script type="module" src="./js/acessibilidade.js"></script>
+</body>
+
+</html>
