@@ -24,4 +24,3 @@ document.querySelector(".conteudo-login--form").addEventListener("submit", (e) =
     }
 
 });
-
