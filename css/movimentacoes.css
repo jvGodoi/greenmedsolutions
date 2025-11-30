@@ -5,12 +5,14 @@ main {
 .conteudo-login {
   padding: 0 60px;
 }
+
 .conteudo-login h2 {
   margin-bottom: 28px;
   text-align: center;
   text-transform: uppercase;
   position: relative;
 }
+
 .conteudo-login h2::before {
   content: "";
   height: 5px;
@@ -23,6 +25,7 @@ main {
   left: 0;
   background-color: var(--verde-principal);
 }
+
 .conteudo-login h2::after {
   content: "";
   height: 5px;
@@ -54,6 +57,7 @@ main {
   transition: 0.3s;
   font-size: 1.8rem;
 }
+
 .conteudo-login--form input:hover {
   box-shadow: 0px 0px 5px 0px var(--verde-sombra);
 }
@@ -80,20 +84,374 @@ main {
   background-color: var(--verde-hover);
 }
 
-.input-usuario{
+.input-usuario {
   padding: 20px;
   margin: 0;
 }
+
 .login-usuario,
 .login-senha {
   display: flex;
 }
+
 .login-usuario img,
 .login-senha img {
   padding: 0 20px;
   border-radius: 10px 0px 0px 10px;
   border: 1px solid var(--verde-principal);
   background-color: var(--bg-icone-login);
+}
+
+.status-badge {
+  display: inline-flex;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease;
+}
+
+.status-entrada {
+  background-color: #dcfce7;
+  color: #15803d;
+  border: 1px solid #86efac;
+}
+
+.status-saida {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  border: 1px solid #fca5a5;
+}
+
+.status-transferencia {
+  background-color: #dbeafe;
+  color: #1e40af;
+  border: 1px solid #93c5fd;
+}
+
+.status-ajuste {
+  background-color: #fef3c7;
+  color: #a16207;
+  border: 1px solid #fde047;
+}
+
+[data-theme="dark"] .status-entrada {
+  background-color: rgba(22, 163, 74, 0.2);
+  color: #86efac;
+  border: 1px solid rgba(134, 239, 172, 0.3);
+}
+
+[data-theme="dark"] .status-saida {
+  background-color: rgba(220, 38, 38, 0.2);
+  color: #fca5a5;
+  border: 1px solid rgba(252, 165, 165, 0.3);
+}
+
+[data-theme="dark"] .status-transferencia {
+  background-color: rgba(37, 99, 235, 0.2);
+  color: #93c5fd;
+  border: 1px solid rgba(147, 197, 253, 0.3);
+}
+
+[data-theme="dark"] .status-ajuste {
+  background-color: rgba(202, 138, 4, 0.2);
+  color: #fde047;
+  border: 1px solid rgba(253, 224, 71, 0.3);
+}
+
+.container-conteudo-principal--produtos-cabecalho-filtro-pesquisa {
+  position: relative;
+  display: inline-block;
+}
+
+.container-conteudo-principal--produtos-cabecalho-filtro-pesquisa-btn-pesquisa::placeholder {
+  color: var(--placeholder);
+}
+
+.container-conteudo-principal--produtos-cabecalho-filtro-pesquisa-btn-pesquisa[type="search"] {
+  width: 250px;
+  padding: 10px 40px;
+  border: 1px solid var(--input-border);
+  border-radius: 25px;
+  outline: none;
+  color: var(--input-text);
+  background: var(--input-bg);
+  transition: .2s;
+}
+
+.container-conteudo-principal--produtos-cabecalho-filtro-pesquisa-btn-pesquisa[type="search"]:hover {
+  box-shadow: 0 0 5px 0 var(--input-border);
+}
+
+.container-conteudo-principal--produtos-cabecalho-filtro-pesquisa-btn-pesquisa--search {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+  width: 20px;
+  height: 20px;
+}
+
+.produto-dropdown .produto-item:hover {
+  background-color: var(--bg-hover, rgba(0, 0, 0, 0.05));
+}
+
+[data-theme="dark"] .produto-dropdown .produto-item:hover {
+  background-color: var(--bg-hover, rgba(255, 255, 255, 0.1));
+}
+
+.produto-dropdown::-webkit-scrollbar {
+  width: 8px;
+}
+
+.produto-dropdown::-webkit-scrollbar-track {
+  background: var(--np-bg, #f1f1f1);
+}
+
+.produto-dropdown::-webkit-scrollbar-thumb {
+  background: var(--np-muted, #888);
+  border-radius: 4px;
+}
+
+.produto-dropdown::-webkit-scrollbar-thumb:hover {
+  background: var(--np-muted-hover, #555);
+}
+
+/* ===== Filtro Modal (apenas movimentações) ===== */
+.flt-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 1000;
+}
+
+.flt-backdrop[aria-hidden="false"] {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.flt-modal {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 1001;
+}
+
+.flt-modal[aria-hidden="false"] {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.flt-card {
+  width: 100%;
+  max-width: 520px;
+  background: var(--surface-1);
+  border: 1px solid var(--border-weak);
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  transform: scale(0.96);
+  transition: transform 0.2s ease;
+}
+
+.flt-modal[aria-hidden="false"] .flt-card {
+  transform: scale(1);
+}
+
+.flt-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px;
+  border-bottom: 1px solid var(--border-weak);
+  background: var(--surface-1);
+  border-radius: 12px 12px 0 0;
+}
+
+.flt-title {
+  margin: 0 0 4px 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-strong);
+}
+
+.flt-subtitle {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.flt-btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid var(--border-weak);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.flt-btn-icon:hover {
+  background: var(--surface-2);
+}
+
+.flt-body {
+  padding: 20px;
+  display: grid;
+  gap: 16px;
+}
+
+.flt-field {
+  display: grid;
+  gap: 6px;
+}
+
+.flt-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-strong);
+}
+
+.flt-input {
+  width: 100%;
+  height: 42px;
+  padding: 0 12px;
+  border: 1px solid var(--input-border);
+  border-radius: 8px;
+  background: var(--input-bg);
+  color: var(--input-text);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.flt-input::placeholder {
+  color: var(--placeholder);
+}
+
+.flt-input:focus {
+  border-color: var(--verde-principal);
+  box-shadow: 0 0 0 3px rgba(36, 148, 121, 0.12);
+}
+
+.flt-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-top: 1px solid var(--border-weak);
+  background: var(--surface-1);
+  border-radius: 0 0 12px 12px;
+}
+
+.flt-foot-right {
+  display: flex;
+  gap: 8px;
+}
+
+.flt-btn-primary {
+  height: 38px;
+  padding: 0 16px;
+  border: none;
+  border-radius: 8px;
+  background: var(--verde-principal);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.flt-btn-primary:hover {
+  background: var(--verde-hover);
+}
+
+.flt-btn-primary:active {
+  transform: scale(0.98);
+}
+
+.flt-btn-ghost {
+  height: 38px;
+  padding: 0 16px;
+  border: 1px solid var(--border-weak);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.flt-btn-ghost:hover {
+  background: var(--surface-2);
+}
+
+.flt-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 38px;
+  padding: 0 14px;
+  border: 1px solid var(--border-weak);
+  border-radius: 8px;
+  background: var(--surface-1);
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.flt-btn:hover {
+  background: var(--surface-2);
+  border-color: var(--verde-principal);
+}
+
+.flt-btn svg {
+  flex-shrink: 0;
+}
+
+/* Responsivo */
+@media (max-width: 560px) {
+  .flt-card {
+    max-width: 100%;
+    margin: 0 12px;
+  }
+
+  .flt-head,
+  .flt-body,
+  .flt-foot {
+    padding: 16px;
+  }
+
+  .flt-foot {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .flt-foot-right {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .flt-btn-primary,
+  .flt-btn-ghost {
+    width: 100%;
+  }
 }
 
 @media (max-width: 900px) {
@@ -106,6 +464,7 @@ main {
   .conteudo-img {
     display: none;
   }
+
   .conteudo-login {
     text-align: center;
     width: 100%;
