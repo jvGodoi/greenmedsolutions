@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/cadastro.css">
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="./icones/favicon.ico" type="image/x-icon">
+    <title>Cadastro de Usuário</title>
+</head>
+
+<body>
+    <main>
+        <div class="login">
+            <div class="conteudo-login">
+                <h2 class="cadastro-titulo">Cadastro</h2>
+                <form id="cadastroForm" class="conteudo-login--form">
+                    <div class="login-usuario">
+                        <img src="./icones/user.svg" alt="">
+                        <input type="email" id="email" placeholder="Email" class="input-email" required>
+                    </div>
+                    <div class="login-usuario">
+                        <img src="./icones/user.svg" alt="">
+                        <input type="text" id="username" placeholder="Usuário" class="input-username" required>
+                    </div>
+                    <div class="login-senha">
+                        <img src="./icones/pswrd.svg" alt="">
+                        <input type="password" id="password" placeholder="Senha" class="input-password" required>
+                    </div>
+                    <div class="login-senha">
+                        <img src="./icones/pswrd.svg" alt="">
+                        <input type="password" id="confirmPassword" placeholder="Confirmar Senha" class="input-confirm-password" required>
+                    </div>
+
+                    <button type="submit" class="form-btn">Criar Conta</button>
+                </form>
+
+                <div class="cadastro-link">
+                    <p>Já possui conta? <a href="./index.html">Faça login aqui</a></p>
+                </div>
+            </div>
+            <div class="conteudo-img">
+                <img src="./img/img-login.png" alt="Cadastro" class="img-login" height="559px">
+            </div>
+        </div>
+    </main>
+
+    <script src="./js/i18n.js" defer></script>
+    <script type="module" src="./js/cadastro.js"></script>
+</body>
+
+</html>
